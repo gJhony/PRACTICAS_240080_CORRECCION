@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  postgres_jhon:
+    image: postgres:15-alpine
+    container_name: postgres_jhon
+    restart: always
+    environment:
+      POSTGRES_USER: jhony40080
+      POSTGRES_PASSWORD: "40080!"
+      POSTGRES_DB: db_40080
+    ports:
+      - "40080:5432"
+    volumes:
+      - postgres_data_jhon:/var/lib/postgresql/data
+
+  mysql_jhon:
+    image: mysql:8.0
+    container_name: mysql_jhon
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root!
+      MYSQL_DATABASE: db_test_7b
+      MYSQL_USER: jhon_jojos
+      MYSQL_PASSWORD: "240080"
+    ports:
+      - "40081:3306"
+    volumes:
+      - mysql_data_jhon:/var/lib/mysql
+
+  pgadmin_jhon:
+    image: dpage/pgadmin4:7.8
+    container_name: pgadmin_jhon
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 240080@utxicotepec.edu.mx
+      PGADMIN_DEFAULT_PASSWORD: "240080"
+      PGADMIN_CONFIG_SERVER_MODE: "True"
+      ports:
+      - "40082:80"
+    depends_on:
+      - postgres_jhon
+
+volumes:
+  postgres_data_jhon:
+  mysql_data_jhon:
+
