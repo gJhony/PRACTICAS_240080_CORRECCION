@@ -2,6 +2,8 @@
 -- ELIMINAR USUARIOS SI YA EXISTEN
 -- =====================================================
 
+DROP USER IF EXISTS 'app_web'@'%';
+DROP USER IF EXISTS 'app_mobile'@'%';
 DROP USER IF EXISTS 'marco.ramirez'@'%';
 DROP USER IF EXISTS 'jhon.gonzalez'@'%';
 DROP USER IF EXISTS 'pablo.martinez'@'%';
@@ -10,17 +12,22 @@ DROP USER IF EXISTS 'rene.gonzalez'@'%';
 DROP USER IF EXISTS 'sam.pil'@'%';
 DROP USER IF EXISTS 'diego.g'@'%';
 DROP USER IF EXISTS 'jenny.cm'@'%';
-DROP USER IF EXISTS 'mario.banda'%'@';
-
+DROP USER IF EXISTS 'mario.banda'@'%';
 
 -- =====================================================
 -- CREAR USUARIOS
 -- =====================================================
 
+CREATE USER 'app_web'@'%'
+IDENTIFIED BY 'web123';
+
+CREATE USER 'app_mobile'@'%'
+IDENTIFIED BY 'mobile890';
+
 CREATE USER 'marco.ramirez'@'%'
 IDENTIFIED BY 'qwerty123';
 
-CREATE USER 'mario.banda'@'%';
+CREATE USER 'mario.banda'@'%'        -- Removido el punto y coma prematuro
 IDENTIFIED BY '240597';
 
 CREATE USER 'jhon.gonzalez'@'%'
@@ -53,7 +60,7 @@ DROP ROLE IF EXISTS 'admin';
 DROP ROLE IF EXISTS 'seller';
 DROP ROLE IF EXISTS 'buyer';
 DROP ROLE IF EXISTS 'support';
-DROP ROLE IF EXISTS 'usuario sin rol';
+DROP ROLE IF EXISTS 'user_not_registered';
 
 
 -- =====================================================
@@ -64,7 +71,7 @@ CREATE ROLE 'admin';
 CREATE ROLE 'seller';
 CREATE ROLE 'buyer';
 CREATE ROLE 'support';
-CREATE ROLE 'usuario sin rol';
+CREATE ROLE 'user_not_registered';
 
 
 -- =====================================================
@@ -94,7 +101,6 @@ ON `db_test_7b`.`tbd_products_categorias`
 TO 'support';
 
 
-
 -- =====================================================
 -- PRIVILEGIOS DEL ROL SELLER
 -- =====================================================
@@ -117,9 +123,14 @@ TO 'buyer';
 -- PRIVILEGIOS DEL ROL USER_NOT_REGISTERED
 -- =====================================================
 
-GRANT SELECT
-ON `db_test_7b`.`tb_products`
-TO 'usuarion sin rol';
+GRANT INSERT ON `db_test_7b`.`tb_users`
+TO 'user_not_registered';
+
+GRANT INSERT ON `db_test_7b`.`tb_people`
+TO 'user_not_registered';
+
+GRANT EXECUTE ON PROCEDURE db_test_7b.sp_register_new_user 
+TO 'user_not_registered'; -- Corregido el nombre del rol (user_not_registered)
 
 
 -- =====================================================
@@ -130,6 +141,11 @@ GRANT ALL PRIVILEGES
 ON *.*
 TO 'jhon.gonzalez'@'%'
 WITH GRANT OPTION;
+
+/* Asignar roles a las credenciales para las apps */
+
+GRANT 'user_not_registered' TO 'app_web'@'%';
+GRANT 'user_not_registered' TO 'app_mobile'@'%';
 
 
 -- =====================================================
@@ -169,10 +185,10 @@ TO 'marco.ramirez'@'%';
 GRANT 'support'
 TO 'pablo.martinez'@'%';
 
-GRANT 'seller' #2
+GRANT 'seller' -- #2
 TO 'rene.gonzalez'@'%';
 
-GRANT 'seller' #1
+GRANT 'seller' -- #1
 TO 'jenny.cm'@'%';
 
 GRANT 'seller'
@@ -203,6 +219,12 @@ TO 'diego.g'@'%';
 
 SET DEFAULT ROLE 'seller'
 TO 'sam.pil'@'%';
+
+SET DEFAULT ROLE 'user_not_registered'
+TO 'app_web'@'%';
+
+SET DEFAULT ROLE 'user_not_registered'
+TO 'app_mobile'@'%';
 
 
 -- =====================================================
