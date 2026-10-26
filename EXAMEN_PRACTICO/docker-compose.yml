@@ -24,7 +24,7 @@ services:
       MYSQL_USER: jhon_jojos
       MYSQL_PASSWORD: "240080"
     ports:
-      - "40081:3306"
+      - "40081:40080"
     volumes:
       - mysql_data_jhon:/var/lib/mysql
 
@@ -43,5 +43,7 @@ services:
 
 volumes:
   postgres_data_jhon:
+    driver: local
   mysql_data_jhon:
+    driver: local
 
