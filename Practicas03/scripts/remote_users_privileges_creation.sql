@@ -18,213 +18,117 @@ DROP USER IF EXISTS 'mario.banda'@'%';
 -- CREAR USUARIOS
 -- =====================================================
 
-CREATE USER 'app_web'@'%'
-IDENTIFIED BY 'web123';
-
-CREATE USER 'app_mobile'@'%'
-IDENTIFIED BY 'mobile890';
-
-CREATE USER 'marco.ramirez'@'%'
-IDENTIFIED BY 'qwerty123';
-
-CREATE USER 'mario.banda'@'%'        -- Removido el punto y coma prematuro
-IDENTIFIED BY '240597';
-
-CREATE USER 'jhon.gonzalez'@'%'
-IDENTIFIED BY '240080';
-
-CREATE USER 'pablo.martinez'@'%'
-IDENTIFIED BY '240701';
-
-CREATE USER 'mayte.gutierrez'@'%'
-IDENTIFIED BY '240174';
-
-CREATE USER 'rene.gonzalez'@'%'
-IDENTIFIED BY '240107';
-
-CREATE USER 'sam.pil'@'%'
-IDENTIFIED BY '240023';
-
-CREATE USER 'diego.g'@'%'
-IDENTIFIED BY '240709';
-
-CREATE USER 'jenny.cm'@'%'
-IDENTIFIED BY '240556';
+CREATE USER 'app_web'@'%' IDENTIFIED BY 'web123';
+CREATE USER 'app_mobile'@'%' IDENTIFIED BY 'mobile890';
+CREATE USER 'marco.ramirez'@'%' IDENTIFIED BY 'qwerty123';
+CREATE USER 'mario.banda'@'%' IDENTIFIED BY '240597';
+CREATE USER 'jhon.gonzalez'@'%' IDENTIFIED BY '240080';
+CREATE USER 'pablo.martinez'@'%' IDENTIFIED BY '240701';
+CREATE USER 'mayte.gutierrez'@'%' IDENTIFIED BY '240174';
+CREATE USER 'rene.gonzalez'@'%' IDENTIFIED BY '240107';
+CREATE USER 'sam.pil'@'%' IDENTIFIED BY '240023';
+CREATE USER 'diego.g'@'%' IDENTIFIED BY '240709';
+CREATE USER 'jenny.cm'@'%' IDENTIFIED BY '240556';
 
 
 -- =====================================================
--- ELIMINAR ROLES SI YA EXISTEN
+-- ELIMINAR ROLES SI YA EXISTEN (Los 7 roles requeridos)
 -- =====================================================
 
+DROP ROLE IF EXISTS 'superadmin';
 DROP ROLE IF EXISTS 'admin';
+DROP ROLE IF EXISTS 'support';
 DROP ROLE IF EXISTS 'seller';
 DROP ROLE IF EXISTS 'buyer';
-DROP ROLE IF EXISTS 'support';
+DROP ROLE IF EXISTS 'common_user';
 DROP ROLE IF EXISTS 'user_not_registered';
 
 
 -- =====================================================
--- CREAR ROLES
+-- CREAR LOS 7 ROLES DEL SISTEMA
 -- =====================================================
 
+CREATE ROLE 'superadmin';
 CREATE ROLE 'admin';
+CREATE ROLE 'support';
 CREATE ROLE 'seller';
 CREATE ROLE 'buyer';
-CREATE ROLE 'support';
+CREATE ROLE 'common_user';
 CREATE ROLE 'user_not_registered';
 
 
 -- =====================================================
--- PRIVILEGIOS DEL ROL ADMIN
+-- PRIVILEGIOS DE LOS ROLES SOBRE LAS TABLAS OPERATIVAS
 -- =====================================================
 
-GRANT ALL PRIVILEGES
-ON *.*
-TO 'admin'
-WITH GRANT OPTION;
+-- 1. SUPERADMIN (Acceso total absoluto)
+GRANT ALL PRIVILEGES ON *.* TO 'superadmin' WITH GRANT OPTION;
 
+-- 2. ADMIN (Administración general)
+GRANT ALL PRIVILEGES ON `db_test_7b`.* TO 'admin';
 
--- =====================================================
--- PRIVILEGIOS DEL ROL SUPPORT
--- =====================================================
+-- 3. SUPPORT (Soporte técnico y revisión)
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_users` TO 'support';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_products` TO 'support';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tbd_products_categories` TO 'support';
 
-GRANT SELECT, INSERT, UPDATE
-ON `db_test_7b`.`tb_users`
-TO 'support';
+-- 4. SELLER (Gestión de productos propios)
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_products` TO 'seller';
 
-GRANT SELECT, INSERT, UPDATE
-ON `db_test_7b`.`tb_products`
-TO 'support';
+-- 5. BUYER (Compra y visualización de productos)
+GRANT SELECT ON `db_test_7b`.`tb_products` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_carts` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_buyer_orders` TO 'buyer';
 
-GRANT SELECT, INSERT, UPDATE
-ON `db_test_7b`.`tbd_products_categorias`
-TO 'support';
+-- 6. COMMON_USER (Usuario registrado general)
+GRANT SELECT ON `db_test_7b`.`tb_products` TO 'common_user';
+GRANT SELECT, UPDATE ON `db_test_7b`.`tb_users` TO 'common_user';
 
-
--- =====================================================
--- PRIVILEGIOS DEL ROL SELLER
--- =====================================================
-
-GRANT SELECT, INSERT, UPDATE
-ON `db_test_7b`.`tb_products`
-TO 'seller';
+-- 7. USER_NOT_REGISTERED (Invitado / Registro)
+GRANT INSERT ON `db_test_7b`.`tb_users` TO 'user_not_registered';
+GRANT INSERT ON `db_test_7b`.`tb_people` TO 'user_not_registered';
+GRANT EXECUTE ON PROCEDURE db_test_7b.sp_register_new_user TO 'user_not_registered';
 
 
 -- =====================================================
--- PRIVILEGIOS DEL ROL BUYER
+-- ASIGNACIÓN DE ROLES A CUENTAS DE USUARIO
 -- =====================================================
 
-GRANT SELECT
-ON `db_test_7b`.`tb_products`
-TO 'buyer';
+-- Superadmin directo para Jhon
+GRANT 'superadmin' TO 'jhon.gonzalez'@'%';
 
+-- Admin para Marco
+GRANT 'admin' TO 'marco.ramirez'@'%';
 
--- =====================================================
--- PRIVILEGIOS DEL ROL USER_NOT_REGISTERED
--- =====================================================
+-- Support para Pablo
+GRANT 'support' TO 'pablo.martinez'@'%';
 
-GRANT INSERT ON `db_test_7b`.`tb_users`
-TO 'user_not_registered';
+-- Sellers para René, Jenny, Diego y Samuel
+GRANT 'seller' TO 'rene.gonzalez'@'%';
+GRANT 'seller' TO 'jenny.cm'@'%';
+GRANT 'seller' TO 'diego.g'@'%';
+GRANT 'seller' TO 'sam.pil'@'%';
 
-GRANT INSERT ON `db_test_7b`.`tb_people`
-TO 'user_not_registered';
-
-GRANT EXECUTE ON PROCEDURE db_test_7b.sp_register_new_user 
-TO 'user_not_registered'; -- Corregido el nombre del rol (user_not_registered)
-
-
--- =====================================================
--- SUPER ADMIN DIRECTO PARA JHON
--- =====================================================
-
-GRANT ALL PRIVILEGES
-ON *.*
-TO 'jhon.gonzalez'@'%'
-WITH GRANT OPTION;
-
-/* Asignar roles a las credenciales para las apps */
-
+-- Apps móviles y web con rol de usuario no registrado
 GRANT 'user_not_registered' TO 'app_web'@'%';
 GRANT 'user_not_registered' TO 'app_mobile'@'%';
 
 
 -- =====================================================
--- PRIVILEGIOS DIRECTOS PARA SAMUEL
+-- CONFIGURAR ROLES QUE DEBERÁN ACTIVARSE POR DEFECTO
 -- =====================================================
 
-GRANT SELECT, INSERT, UPDATE, DELETE 
-ON `db_test_7b`.`tb_users` 
-TO 'sam.pil'@'%';
+SET DEFAULT ROLE 'superadmin' TO 'jhon.gonzalez'@'%';
+SET DEFAULT ROLE 'admin' TO 'marco.ramirez'@'%';
+SET DEFAULT ROLE 'support' TO 'pablo.martinez'@'%';
+SET DEFAULT ROLE 'seller' TO 'rene.gonzalez'@'%';
+SET DEFAULT ROLE 'seller' TO 'jenny.cm'@'%';
+SET DEFAULT ROLE 'seller' TO 'diego.g'@'%';
+SET DEFAULT ROLE 'seller' TO 'sam.pil'@'%';
+SET DEFAULT ROLE 'user_not_registered' TO 'app_web'@'%';
+SET DEFAULT ROLE 'user_not_registered' TO 'app_mobile'@'%';
 
 
--- =====================================================
--- PRIVILEGIOS DIRECTOS PARA PABLO
--- =====================================================
-
-GRANT SELECT, INSERT, UPDATE, DELETE
-ON `db_test_7b`.*
-TO 'pablo.martinez'@'%';
-
-
--- =====================================================
--- PRIVILEGIOS DIRECTOS PARA RENE
--- =====================================================
-
-GRANT SELECT, INSERT, UPDATE, DELETE
-ON `db_test_7b`.*
-TO 'rene.gonzalez'@'%';
-
-
--- =====================================================
--- ASIGNAR ROLES A USUARIOS
--- =====================================================
-
-GRANT 'admin'
-TO 'marco.ramirez'@'%';
-
-GRANT 'support'
-TO 'pablo.martinez'@'%';
-
-GRANT 'seller' -- #2
-TO 'rene.gonzalez'@'%';
-
-GRANT 'seller' -- #1
-TO 'jenny.cm'@'%';
-
-GRANT 'seller'
-TO 'diego.g'@'%';
-
-GRANT 'seller'
-TO 'sam.pil'@'%';
-
-
--- =====================================================
--- ACTIVAR ROLES POR DEFECTO
--- =====================================================
-
-SET DEFAULT ROLE 'admin'
-TO 'marco.ramirez'@'%';
-
-SET DEFAULT ROLE 'support'
-TO 'pablo.martinez'@'%';
-
-SET DEFAULT ROLE 'seller'
-TO 'rene.gonzalez'@'%';
-
-SET DEFAULT ROLE 'seller'
-TO 'jenny.cm'@'%';
-
-SET DEFAULT ROLE 'seller'
-TO 'diego.g'@'%';
-
-SET DEFAULT ROLE 'seller'
-TO 'sam.pil'@'%';
-
-SET DEFAULT ROLE 'user_not_registered'
-TO 'app_web'@'%';
-
-SET DEFAULT ROLE 'user_not_registered'
-TO 'app_mobile'@'%';
 
 
 -- =====================================================
