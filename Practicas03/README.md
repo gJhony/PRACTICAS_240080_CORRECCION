@@ -7,9 +7,9 @@ El sitio reúne la portada de la práctica, el modelo entidad-relación interact
 | Recurso | Descripción | Enlace |
 |---|---|---|
 | **Portada de la práctica** | Resumen y navegación de los materiales publicados. | [Abrir sitio](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/) |
-| **Modelo EER y diccionario de datos** | Diagrama navegable, relaciones, atributos y restricciones del modelo. | [Abrir modelo interactivo](docs/modelo_eer_diccionario_final2.html) |
-| **Diagrama EER** | Vista independiente del modelo entidad-relación. | [Abrir diagrama](docs/archify/modelo_eer_final2.html) |
-| **Informe técnico** | Inventario del esquema y alcance de la evidencia disponible. | [Leer informe](docs/informe_final2.md) |
+| **Modelo EER y diccionario de datos** | Diagrama navegable, relaciones, atributos y restricciones del modelo. | [Abrir modelo interactivo](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/modelo_eer_diccionario_final2.html) |
+| **Diagrama EER** | Vista independiente del modelo entidad-relación. | [Abrir diagrama](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/archify/modelo_eer_final2.html) |
+| **Informe técnico** | Inventario del esquema y alcance de la evidencia disponible. | [Leer informe](https://github.com/gJhony/PRACTICAS_240080_CORRECCION/blob/Practica03/Practicas03/docs/informe_final2.md) |
 | **Consultas de verificación** | Consultas SQL para revisar tablas, triggers, bitácora y rutinas. | [Ver consultas](queries/consultas_verificaciones.sql) |
 
 > La documentación se genera desde archivos de respaldo SQL. Las cantidades reportadas describen esos archivos; no representan datos consultados en vivo en un servidor.
