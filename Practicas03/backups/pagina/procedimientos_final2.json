@@ -1,0 +1,132 @@
+{
+  "source": "final2.sql",
+  "database": "db_test_7b",
+  "inventory": {
+    "procedures": 1,
+    "functions": 0,
+    "triggers": 0,
+    "events": 0
+  },
+  "routines": [
+    {
+      "name": "sp_register_new_user",
+      "kind": "PROCEDURE",
+      "definer": "`root`@`localhost`",
+      "delimiter": ";;",
+      "characteristics": [
+        "MODIFIES SQL DATA"
+      ],
+      "parameters": [
+        {
+          "mode": "IN",
+          "name": "p_email",
+          "type": "VARCHAR(100)",
+          "description": "Correo de la cuenta; se normaliza y valida."
+        },
+        {
+          "mode": "IN",
+          "name": "p_nick",
+          "type": "VARCHAR(50)",
+          "description": "Alias; m?nimo de 3 caracteres."
+        },
+        {
+          "mode": "IN",
+          "name": "p_password",
+          "type": "VARCHAR(100)",
+          "description": "Contrase?a recibida; m?nimo de 8 caracteres, luego transformada mediante MD5."
+        },
+        {
+          "mode": "IN",
+          "name": "p_courtesy_title",
+          "type": "VARCHAR(20)",
+          "description": "Tratamiento opcional."
+        },
+        {
+          "mode": "IN",
+          "name": "p_given_names",
+          "type": "VARCHAR(150)",
+          "description": "Nombres; obligatorio."
+        },
+        {
+          "mode": "IN",
+          "name": "p_family_names",
+          "type": "VARCHAR(150)",
+          "description": "Apellidos opcionales."
+        },
+        {
+          "mode": "IN",
+          "name": "p_birth_date",
+          "type": "DATE",
+          "description": "Fecha de nacimiento opcional y validada."
+        },
+        {
+          "mode": "IN",
+          "name": "p_gender",
+          "type": "VARCHAR(30)",
+          "description": "G?nero permitido por el procedimiento."
+        },
+        {
+          "mode": "IN",
+          "name": "p_country_code",
+          "type": "VARCHAR(50)",
+          "description": "C?digo de pa?s opcional, dos letras."
+        },
+        {
+          "mode": "IN",
+          "name": "p_phone",
+          "type": "VARCHAR(25)",
+          "description": "Tel?fono opcional con formato validado."
+        }
+      ],
+      "tables": [
+        "mysql.role_edges",
+        "tb_people",
+        "tb_users"
+      ],
+      "table_impact": [
+        {
+          "name": "mysql.role_edges",
+          "operations": [
+            "SELECT"
+          ]
+        },
+        {
+          "name": "tb_people",
+          "operations": [
+            "INSERT"
+          ]
+        },
+        {
+          "name": "tb_users",
+          "operations": [
+            "SELECT",
+            "INSERT"
+          ]
+        }
+      ],
+      "reads": [
+        "mysql.role_edges",
+        "tb_users"
+      ],
+      "writes": [
+        "tb_people",
+        "tb_users"
+      ],
+      "transactions": [
+        "START TRANSACTION",
+        "COMMIT",
+        "ROLLBACK"
+      ],
+      "has_exception_handler": true,
+      "flow": [
+        "Valida el rol consultando mysql.role_edges.",
+        "Normaliza los campos y valida correo, alias, contrase?a y datos personales.",
+        "Consulta tb_users para detectar correo y alias duplicados.",
+        "Inserta la cuenta y su perfil personal bajo una transacci?n.",
+        "Devuelve IDs y datos b?sicos de la operaci?n."
+      ],
+      "business_description": "Registra una cuenta y los datos asociados de la persona tras verificar roles y validar los campos de entrada. Revierte la transacci?n ante fallos de escritura y devuelve los identificadores y datos b?sicos de la operaci?n.",
+      "source_code": "CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_register_new_user`(\n    IN p_email          VARCHAR(100),\n    IN p_nick           VARCHAR(50),\n    IN p_password       VARCHAR(100),\n    IN p_courtesy_title VARCHAR(20),\n    IN p_given_names    VARCHAR(150),\n    IN p_family_names   VARCHAR(150),\n    IN p_birth_date     DATE,\n    IN p_gender         VARCHAR(30),\n    IN p_country_code   VARCHAR(50),\n    IN p_phone          VARCHAR(25)\n)\n    MODIFIES SQL DATA\nBEGIN\n    DECLARE v_db_user    VARCHAR(32);\n    DECLARE v_has_role   INT DEFAULT 0;\n    DECLARE v_count      INT DEFAULT 0;\n    DECLARE v_user_id    INT; -- Corregido a INT para coincidir con tb_users.ID\n    DECLARE v_person_id  BIGINT UNSIGNED;\n\n    DECLARE EXIT HANDLER FOR SQLEXCEPTION\n    BEGIN\n        ROLLBACK;\n        RESIGNAL;\n    END;\n\n    DECLARE EXIT HANDLER FOR 1062\n    BEGIN\n        ROLLBACK;\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El correo o el nick ya se encuentran registrados';\n    END;\n\n    \n    SET v_db_user = SUBSTRING_INDEX(USER(), '@', 1);\n\n    \n    SELECT COUNT(*)\n    INTO v_has_role\n    FROM mysql.role_edges re\n    WHERE re.TO_USER = v_db_user\n      AND re.TO_HOST = '%'\n      AND re.FROM_HOST = '%'\n      AND re.FROM_USER IN (\n          'superadmin',\n          'admin',\n          'support',\n          'user_not_registered'\n      );\n\n    IF v_has_role = 0 THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'Acceso denegado: rol no autorizado';\n    END IF;\n\n    \n    SET p_email          = LOWER(TRIM(p_email));\n    SET p_nick           = TRIM(p_nick);\n    SET p_given_names    = TRIM(p_given_names);\n    SET p_family_names   = NULLIF(TRIM(p_family_names), '');\n    SET p_courtesy_title = NULLIF(TRIM(p_courtesy_title), '');\n    SET p_gender         = COALESCE(NULLIF(TRIM(p_gender), ''), 'Prefiero no decirlo');\n    SET p_country_code   = NULLIF(UPPER(TRIM(p_country_code)), '');\n    SET p_phone          = NULLIF(TRIM(p_phone), '');\n\n    \n    IF p_email IS NULL OR p_email NOT REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,}$' THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El correo electrónico es inválido';\n    END IF;\n\n    IF p_nick IS NULL OR CHAR_LENGTH(p_nick) < 3 THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El nick debe tener al menos 3 caracteres';\n    END IF;\n\n    IF p_password IS NULL OR CHAR_LENGTH(p_password) < 8 THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'La contraseña debe tener al menos 8 caracteres';\n    END IF;\n\n    \n    IF p_given_names IS NULL OR p_given_names = '' THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El nombre es obligatorio';\n    END IF;\n\n    IF p_birth_date IS NOT NULL\n       AND (p_birth_date > CURRENT_DATE OR p_birth_date < '1900-01-01') THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'La fecha de nacimiento es inválida';\n    END IF;\n\n    IF p_gender NOT IN ('Hombre', 'Mujer', 'Prefiero no decirlo') THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El género debe ser Hombre, Mujer o Prefiero no decirlo';\n    END IF;\n\n    IF p_country_code IS NOT NULL AND p_country_code NOT REGEXP '^[A-Z]{2}$' THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El código de país debe tener 2 letras (ISO)';\n    END IF;\n\n    IF p_phone IS NOT NULL AND p_phone NOT REGEXP '^[0-9+() -]{7,25}$' THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El teléfono es inválido';\n    END IF;\n\n    \n    SELECT COUNT(*) INTO v_count FROM tb_users WHERE email = p_email;\n    IF v_count > 0 THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El correo electrónico ya se encuentra registrado';\n    END IF;\n\n    SELECT COUNT(*) INTO v_count FROM tb_users WHERE nick = p_nick;\n    IF v_count > 0 THEN\n        SIGNAL SQLSTATE '45000'\n        SET MESSAGE_TEXT = 'El nick ya se encuentra en uso';\n    END IF;\n\n    \n    START TRANSACTION;\n\n    INSERT INTO tb_users (email, nick, password)\n    VALUES (p_email, p_nick, MD5(p_password));\n\n    SET v_user_id = LAST_INSERT_ID();\n\n    INSERT INTO tb_people (\n        user_ID, courtesy_title, given_names, family_names,\n        birth_date, gender, country_code, phone\n    )\n    VALUES (\n        v_user_id, p_courtesy_title, p_given_names, p_family_names,\n        p_birth_date, p_gender, p_country_code, p_phone\n    );\n\n    SET v_person_id = LAST_INSERT_ID();\n\n    COMMIT;\n\n    \n    SELECT\n        'Usuario y persona registrados correctamente' AS mensaje,\n        v_user_id AS user_id,\n        v_person_id AS person_id,\n        p_email AS email,\n        p_nick AS nick,\n        v_db_user AS ejecutado_por,\n        CURRENT_TIMESTAMP AS fecha_operacion;\nEND;"
+    }
+  ]
+}
