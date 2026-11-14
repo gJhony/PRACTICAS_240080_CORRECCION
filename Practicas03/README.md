@@ -7,8 +7,10 @@ El sitio reúne la portada de la práctica, el modelo entidad-relación interact
 | Recurso | Descripción | Enlace |
 |---|---|---|
 | **Portada de la práctica** | Resumen y navegación de los materiales publicados. | [Abrir sitio](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/) |
-| **Modelo EER y diccionario de datos** | Diagrama navegable, relaciones, atributos y restricciones del modelo. | [Abrir modelo interactivo](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/modelo_eer_diccionario_final2.html) |
-| **Diagrama EER** | Vista independiente del modelo entidad-relación. | [Abrir diagrama](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/archify/modelo_eer_final2.html) |
+| **Modelo EER y diccionario de datos actualizado** | Modelo interactivo con relaciones, atributos, restricciones y datos del respaldo `final4.sql`. | [Abrir modelo final4](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/archify/final4_model.html) |
+| **Modelo EER anterior** | Versión previa del modelo, generada desde `final3.sql`. | [Abrir modelo final3](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/archify/final3_model.html) |
+| **Modelo EER anterior** | Versión previa del diccionario interactivo, generada desde `final2.sql`. | [Abrir modelo final2](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/modelo_eer_diccionario_final2.html) |
+| **Diagrama EER anterior** | Vista independiente de la versión anterior del modelo. | [Abrir diagrama anterior](https://gjhony.github.io/PRACTICAS_240080_CORRECCION/archify/modelo_eer_final2.html) |
 | **Informe técnico** | Inventario del esquema y alcance de la evidencia disponible. | [Leer informe](https://github.com/gJhony/PRACTICAS_240080_CORRECCION/blob/Practica03/Practicas03/docs/informe_final2.md) |
 | **Consultas de verificación** | Consultas SQL para revisar tablas, triggers, bitácora y rutinas. | [Ver consultas](queries/consultas_verificaciones.sql) |
 
@@ -18,7 +20,7 @@ El sitio reúne la portada de la práctica, el modelo entidad-relación interact
 
 Esta práctica documenta una base de datos relacional para un sistema de comercio electrónico. El esquema `db_test_7b` organiza cuentas y personas, catálogo de productos y categorías, carritos y órdenes, pagos, envíos, devoluciones, reseñas y registros de auditoría.
 
-El informe técnico resume el respaldo `final2.sql`: **25 tablas, 189 columnas, 30 claves foráneas, 72 triggers, 25 vistas únicas y 1 procedimiento almacenado**. El respaldo define estos objetos; su presencia en el archivo no demuestra por sí sola que estén activos en una instancia MySQL.
+El modelo interactivo actualizado se genera desde `final4.sql`: **25 tablas, 189 columnas, 30 claves foráneas, 72 triggers, 25 vistas únicas y 1 procedimiento almacenado**. Estas cantidades describen el respaldo; su presencia en el archivo no demuestra por sí sola que los objetos estén activos en una instancia MySQL. El informe `informe_final2.md` conserva el análisis de una versión anterior.
 
 ## Actividades y contenido
 
@@ -36,7 +38,10 @@ Practicas03/
 ├── backups/                 # Respaldos SQL y materiales de referencia
 ├── docs/
 │   ├── index.html           # Portada de GitHub Pages
-│   ├── modelo_eer_diccionario_final2.html
+│   ├── archify/
+│   │   ├── final4_model.html  # Modelo actualizado desde final4.sql
+│   │   └── final3_model.html  # Versión anterior
+│   ├── modelo_eer_diccionario_final2.html  # Versión anterior
 │   ├── informe_final2.md
 │   └── archify/              # Diagrama e informe complementarios
 ├── queries/
