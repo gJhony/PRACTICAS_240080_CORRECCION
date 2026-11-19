@@ -1,0 +1,101 @@
+ID,name,description,sup_id_category,status,creation_date,last_update
+1,Electrónica,Productos electrónicos y gadgets,,1,2024-01-15,2024-06-20
+2,Ropa y Accesorios,Prendas de vestir y complementos,,1,2024-01-15,2024-06-20
+3,Hogar y Jardín,Artículos para el hogar y jardinería,,1,2024-01-15,2024-06-20
+4,Deportes y Aire Libre,Equipamiento deportivo y actividades al aire libre,,1,2024-01-15,2024-06-20
+5,Belleza y Cuidado Personal,Productos de belleza y cuidado personal,,1,2024-01-15,2024-06-20
+6,Alimentos y Bebidas,Comestibles y bebidas,,1,2024-01-15,2024-06-20
+7,Juguetes y Juegos,"Juguetes, juegos y entretenimiento infantil",,1,2024-01-15,2024-06-20
+8,Libros y Medios,"Libros, música, películas y medios digitales",,1,2024-01-15,2024-06-20
+9,Automoción,Repuestos y accesorios para vehículos,,1,2024-01-15,2024-06-20
+10,Salud y Bienestar,Productos de salud y bienestar,,1,2024-01-15,2024-06-20
+11,Oficina y Papelería,Material de oficina y papelería,,1,2024-01-15,2024-06-20
+12,Mascotas,Productos para mascotas,,1,2024-01-15,2024-06-20
+13,Bebés y Niños,Artículos para bebés y niños pequeños,,1,2024-01-15,2024-06-20
+14,Herramientas y Bricolaje,Herramientas y materiales de bricolaje,,1,2024-01-15,2024-06-20
+15,Viajes y Equipaje,Artículos de viaje y maletas,,1,2024-01-15,2024-06-20
+16,Smartphones,Teléfonos inteligentes y accesorios,1,1,2024-02-01,2024-03-02
+17,Ordenadores Portátiles,Laptops y notebooks,1,1,2024-02-04,2024-03-05
+18,Tablets,Tabletas y e-readers,1,1,2024-02-07,2024-03-08
+19,Auriculares y Audio,"Auriculares, altavoces y equipos de audio",1,1,2024-02-10,2024-03-11
+20,Cámaras,Cámaras fotográficas y de video,1,1,2024-02-13,2024-03-14
+21,Televisores,Smart TVs y monitores,1,1,2024-02-16,2024-03-17
+22,Consolas de Videojuegos,Consolas y accesorios gaming,1,1,2024-02-19,2024-03-20
+23,Wearables,Relojes inteligentes y pulseras de actividad,1,1,2024-02-22,2024-03-23
+24,Componentes PC,Hardware y componentes para ordenadores,1,1,2024-02-25,2024-03-26
+25,Redes y Conectividad,"Routers, switches y accesorios de red",1,1,2024-02-28,2024-03-29
+26,Ropa de Hombre,Prendas masculinas,2,1,2024-02-01,2024-03-02
+27,Ropa de Mujer,Prendas femeninas,2,1,2024-02-04,2024-03-05
+28,Ropa Infantil,Ropa para niños y niñas,2,1,2024-02-07,2024-03-08
+29,Calzado,"Zapatos, zapatillas y botas",2,1,2024-02-10,2024-03-11
+30,Bolsos y Carteras,"Bolsos, mochilas y carteras",2,1,2024-02-13,2024-03-14
+31,Joyería,Joyas y bisutería,2,1,2024-02-16,2024-03-17
+32,Relojes,Relojes de pulsera,2,1,2024-02-19,2024-03-20
+33,Gafas de Sol,Gafas de sol y ópticas,2,1,2024-02-22,2024-03-23
+34,Accesorios de Moda,"Cinturones, bufandas y complementos",2,1,2024-02-25,2024-03-26
+35,Ropa Deportiva,Prendas técnicas para deporte,2,1,2024-02-28,2024-03-29
+36,Muebles,Muebles para el hogar,3,1,2024-02-01,2024-03-02
+37,Decoración,Artículos decorativos,3,1,2024-02-04,2024-03-05
+38,Cocina,Utensilios y electrodomésticos de cocina,3,1,2024-02-07,2024-03-08
+39,Baño,Artículos para el baño,3,0,2024-02-10,2024-03-11
+40,Jardinería,Herramientas y plantas de jardín,3,1,2024-02-13,2024-03-14
+41,Iluminación,Lámparas y sistemas de iluminación,3,1,2024-02-16,2024-03-17
+42,Textiles del Hogar,"Ropa de cama, cortinas y toallas",3,1,2024-02-19,2024-03-20
+43,Almacenamiento,"Cajas, estanterías y organizadores",3,1,2024-02-22,2024-03-23
+44,Limpieza,Productos de limpieza del hogar,3,1,2024-02-25,2024-03-26
+45,Exterior,Muebles y accesorios de exterior,3,1,2024-02-28,2024-03-29
+46,Fitness,Equipamiento de gimnasio y fitness,4,1,2024-02-01,2024-03-02
+47,Ciclismo,Bicicletas y accesorios,4,1,2024-02-04,2024-03-05
+48,Running,Zapatillas y ropa de running,4,1,2024-02-07,2024-03-08
+49,Camping,Material de camping y senderismo,4,1,2024-02-10,2024-03-11
+50,Natación,Artículos de natación y playa,4,1,2024-02-13,2024-03-14
+51,Fútbol,"Balones, botas y equipación de fútbol",4,1,2024-02-16,2024-03-17
+52,Baloncesto,Material de baloncesto,4,1,2024-02-19,2024-03-20
+53,Tenis y Pádel,Raquetas y accesorios de raqueta,4,1,2024-02-22,2024-03-23
+54,Esquí y Snowboard,Equipamiento de deportes de invierno,4,1,2024-02-25,2024-03-26
+55,Pesca,"Cañas, carretes y artículos de pesca",4,1,2024-02-28,2024-03-29
+56,Maquillaje,Productos de maquillaje,5,1,2024-02-01,2024-03-02
+57,Cuidado de la Piel,"Cremas, sérums y tratamientos faciales",5,1,2024-02-04,2024-03-05
+58,Cuidado del Cabello,"Champús, acondicionadores y tratamientos",5,1,2024-02-07,2024-03-08
+59,Perfumes,Fragancias para hombre y mujer,5,1,2024-02-10,2024-03-11
+60,Cuidado Corporal,Cremas corporales y exfoliantes,5,1,2024-02-13,2024-03-14
+61,Higiene Oral,"Cepillos, pastas y enjuagues",5,1,2024-02-16,2024-03-17
+62,Afeitado,Máquinas y productos de afeitado,5,1,2024-02-19,2024-03-20
+63,Manicura y Pedicura,Esmaltes y cuidados de uñas,5,1,2024-02-22,2024-03-23
+64,Cuidado Masculino,Productos específicos para hombres,5,1,2024-02-25,2024-03-26
+65,Cosmética Natural,Productos ecológicos y naturales,5,1,2024-02-28,2024-03-29
+66,Supermercado,Productos de alimentación básica,6,1,2024-02-01,2024-03-02
+67,Bebidas,"Refrescos, zumos y aguas",6,1,2024-02-04,2024-03-05
+68,Café y Té,"Café, té e infusiones",6,1,2024-02-07,2024-03-08
+69,Snacks,Aperitivos y snacks,6,1,2024-02-10,2024-03-11
+70,Productos Ecológicos,Alimentos orgánicos y ecológicos,6,1,2024-02-13,2024-03-14
+71,Gourmet,Productos gourmet y delicatessen,6,1,2024-02-16,2024-03-17
+72,Vinos y Licores,"Vinos, cervezas y destilados",6,0,2024-02-19,2024-03-20
+73,Congelados,Alimentos congelados,6,1,2024-02-22,2024-03-23
+74,Repostería,Ingredientes y productos de repostería,6,1,2024-02-25,2024-03-26
+75,Dietética,Productos dietéticos y suplementos alimenticios,6,1,2024-02-28,2024-03-29
+76,Juguetes Educativos,Juguetes para el aprendizaje,7,1,2024-02-01,2024-03-02
+77,Muñecas y Figuras,"Muñecas, action figures y coleccionables",7,0,2024-02-04,2024-03-05
+78,Juegos de Mesa,Juegos de mesa y de cartas,7,1,2024-02-07,2024-03-08
+79,Construcción,Bloques y sets de construcción,7,1,2024-02-10,2024-03-11
+80,Vehículos de Juguete,"Coches, trenes y aviones de juguete",7,1,2024-02-13,2024-03-14
+81,Peluches,Ositos y peluches,7,1,2024-02-16,2024-03-17
+82,Juegos Electrónicos,Juguetes electrónicos e interactivos,7,1,2024-02-19,2024-03-20
+83,Puzzles,Rompecabezas y puzzles,7,1,2024-02-22,2024-03-23
+84,Juegos de Exterior,Juguetes para el aire libre,7,1,2024-02-25,2024-03-26
+85,Manualidades Infantiles,Kits de manualidades para niños,7,1,2024-02-28,2024-03-29
+86,Libros de Ficción,Novelas y literatura de ficción,8,1,2024-02-01,2024-03-02
+87,Libros No Ficción,"Ensayos, biografías y no ficción",8,1,2024-02-04,2024-03-05
+88,Libros Infantiles,Cuentos y libros para niños,8,1,2024-02-07,2024-03-08
+89,Cómics y Manga,"Cómics, novelas gráficas y manga",8,1,2024-02-10,2024-03-11
+90,Música,"CDs, vinilos y música digital",8,1,2024-02-13,2024-03-14
+91,Películas y Series,"DVDs, Blu-ray y streaming",8,1,2024-02-16,2024-03-17
+92,Videojuegos,Juegos para consolas y PC,8,0,2024-02-19,2024-03-20
+93,Revistas,Revistas y publicaciones periódicas,8,0,2024-02-22,2024-03-23
+94,Audiolibros,Libros en formato audio,8,1,2024-02-25,2024-03-26
+95,E-books,Libros electrónicos,8,1,2024-02-28,2024-03-29
+96,Repuestos de Motor,Piezas del motor y mecánica,9,1,2024-02-01,2024-03-02
+97,Neumáticos,Neumáticos y llantas,9,1,2024-02-04,2024-03-05
+98,Accesorios Interiores,"Fundas, alfombrillas y accesorios interiores",9,1,2024-02-07,2024-03-08
+99,Accesorios Exteriores,"Spoilers, faros y exteriores",9,1,2024-02-10,2024-03-11
+100,Electrónica del Coche,"Radios, GPS y sistemas multimedia",9,1,2024-02-13,2024-03-14
