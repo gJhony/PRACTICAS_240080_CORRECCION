@@ -1,0 +1,3567 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "erd",
+  "quality": "standard",
+  "startedAt": "2026-11-19T06:58:34.862Z",
+  "specification": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+    "sha256": "3770f76b66d9cdbf2db6ec6f4224a63216dfbabc21ea172015a343adf6ff541b",
+    "bytes": 33370
+  },
+  "artifact": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html"
+  },
+  "stages": {
+    "validate": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": null,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\jeig2\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "erd",
+        "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+        "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+        "--quality",
+        "standard",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "deliver",
+        "receiptId": "b3a2b152-c57b-4837-86b9-c3a010924745",
+        "stage": "render",
+        "type": "erd",
+        "input": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+        "output": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+        "error": "Entity-relationship layout validation failed:\n- Entity \"tb_people\" attribute 2 \"courtesy_title\" needs 214px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 268px, preserving the attribute name, type and key roles.\n- Entity \"tb_people\" attribute 4 \"family_names\" needs 207px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 261px, preserving the attribute name, type and key roles.\n- Entity \"tb_people\" attribute 6 \"gender\" needs 325px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 379px, preserving the attribute name, type and key roles.\n- Entity \"tb_people\" attribute 10 \"creation_date\" needs 189px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 243px, preserving the attribute name, type and key roles.\n- Entity \"tb_user_addresses\" attribute 0 \"id_user_adress\" needs 195px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 249px, preserving the attribute name, type and key roles.\n- Entity \"tb_user_addresses\" attribute 3 \"recipient_name\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles.\n- Entity \"tb_user_addresses\" attribute 4 \"recipient_phone\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles.\n- Entity \"tb_user_addresses\" attribute 5 \"delivery_instructions\" needs 267px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 321px, preserving the attribute name, type and key roles.\n- Entity \"tb_user_addresses\" attribute 6 \"latitude\" needs 187px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 241px, preserving the attribute name, type and key roles.\n- Entity \"tb_user_addresses\" attribute 7 \"longitude\" needs 194px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 248px, preserving the attribute name, type and key roles.\n- Entity \"tb_categories\" attribute 3 \"sup_id_category\" needs 227px of text but only 186px is available — For this attribute row's text capacity, set entities[3].width to at least 281px, preserving the attribute name, type and key roles.\n- Entity \"tb_buyer_orders\" attribute 4 \"fulfillment_status\" needs 625px of text but only 186px is available — For this attribute row's text capacity, set entities[5].width to at least 679px, preserving the attribute name, type and key roles.\n- Entity \"tb_payments\" attribute 2 \"id_user_payment_method\" needs 248px of text but only 186px is available — For this attribute row's text capacity, set entities[7].width to at least 302px, preserving the attribute name, type and key roles.\n- Entity \"tb_payments\" attribute 5 \"status\" needs 388px of text but only 186px is available — For this attribute row's text capacity, set entities[7].width to at least 442px, preserving the attribute name, type and key roles.\n- Entity \"tb_payment_methods\" attribute 3 \"provider_token\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[8].width to at least 275px, preserving the attribute name, type and key roles.\n- Entity \"tb_payment_transactions\" attribute 3 \"gateway_transaction_id\" needs 229px of text but only 186px is available — For this attribute row's text capacity, set entities[9].width to at least 283px, preserving the attribute name, type and key roles.\n- Entity \"tb_payment_transactions\" attribute 4 \"response_code\" needs 208px of text but only 186px is available — For this attribute row's text capacity, set entities[9].width to at least 262px, preserving the attribute name, type and key roles.\n- Entity \"tb_order_returns\" attribute 4 \"status\" needs 413px of text but only 186px is available — For this attribute row's text capacity, set entities[11].width to at least 467px, preserving the attribute name, type and key roles.\n- Entity \"tb_shipments\" attribute 3 \"id_user_adress\" needs 195px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 249px, preserving the attribute name, type and key roles.\n- Entity \"tb_shipments\" attribute 4 \"tracking_number\" needs 227px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 281px, preserving the attribute name, type and key roles.\n- Entity \"tb_shipments\" attribute 5 \"shipping_cost\" needs 220px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 274px, preserving the attribute name, type and key roles.\n- Entity \"tb_shipments\" attribute 6 \"status\" needs 476px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 530px, preserving the attribute name, type and key roles.\n- Entity \"tb_logs\" attribute 2 \"table_operation\" needs 397px of text but only 186px is available — For this attribute row's text capacity, set entities[13].width to at least 451px, preserving the attribute name, type and key roles.\n- Entity \"tbd_address_components\" attribute 0 \"id_address_component\" needs 235px of text but only 186px is available — For this attribute row's text capacity, set entities[14].width to at least 289px, preserving the attribute name, type and key roles.\n- Entity \"tbd_address_components\" attribute 5 \"address_sup_id\" needs 239px of text but only 186px is available — For this attribute row's text capacity, set entities[14].width to at least 293px, preserving the attribute name, type and key roles.\n- Entity \"tbd_order_items\" attribute 7 \"subtotal\" needs 187px of text but only 186px is available — For this attribute row's text capacity, set entities[17].width to at least 241px, preserving the attribute name, type and key roles.\n- Entity \"tbd_products_users_providers\" attribute 2 \"type_ownership\" needs 384px of text but only 186px is available — For this attribute row's text capacity, set entities[19].width to at least 438px, preserving the attribute name, type and key roles.\n- Entity \"tbd_user_payment_methods\" attribute 0 \"id_user_payment_method\" needs 248px of text but only 186px is available — For this attribute row's text capacity, set entities[21].width to at least 302px, preserving the attribute name, type and key roles.\n- Entity \"tbd_user_payment_methods\" attribute 4 \"provider_method_ref\" needs 209px of text but only 186px is available — For this attribute row's text capacity, set entities[21].width to at least 263px, preserving the attribute name, type and key roles.\n- Entity \"tbc_shipping_carriers\" attribute 2 \"tracking_url_template\" needs 267px of text but only 186px is available — For this attribute row's text capacity, set entities[24].width to at least 321px, preserving the attribute name, type and key roles.\n- [clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_address_components\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_cancellation_items\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_carts_items\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_order_items\" (unrelated to this relationship) on segment 0 [657, 1008] -> [966, 1008] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 2 [561, 1053] -> [561, 236] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 2 [561, 1053] -> [561, 236] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_cancellation_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_carts_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_order_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_products_categories\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_return_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_user_payment_methods\" (unrelated to this relationship) on segment 0 [657, 1978] -> [966, 1978] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_shipments\" (unrelated to this relationship) on segment 0 [846, 1986] -> [559, 1986] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_shipments\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_logs\" (unrelated to this relationship) on segment 0 [846, 2228] -> [559, 2228] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+        "diagnostics": [
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_address_components\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 5,
+              "id": "fk_tb_payment_methods_0",
+              "from": "tb_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_address_components",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1008
+              ],
+              "to": [
+                966,
+                106
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_cancellation_items\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 5,
+              "id": "fk_tb_payment_methods_0",
+              "from": "tb_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_cancellation_items",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1008
+              ],
+              "to": [
+                966,
+                106
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_carts_items\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 5,
+              "id": "fk_tb_payment_methods_0",
+              "from": "tb_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_carts_items",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1008
+              ],
+              "to": [
+                966,
+                106
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_order_items\" (unrelated to this relationship) on segment 0 [657, 1008] -> [966, 1008] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 5,
+              "id": "fk_tb_payment_methods_0",
+              "from": "tb_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_order_items",
+              "segmentIndex": 0,
+              "from": [
+                657,
+                1008
+              ],
+              "to": [
+                966,
+                1008
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 2 [561, 1053] -> [561, 236] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 11,
+              "id": "fk_tb_shipments_0",
+              "from": "tb_shipments",
+              "to": "tb_buyer_orders"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_carts",
+              "segmentIndex": 2,
+              "from": [
+                561,
+                1053
+              ],
+              "to": [
+                561,
+                236
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 2 [561, 1053] -> [561, 236] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 11,
+              "id": "fk_tb_shipments_0",
+              "from": "tb_shipments",
+              "to": "tb_buyer_orders"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payments",
+              "segmentIndex": 2,
+              "from": [
+                561,
+                1053
+              ],
+              "to": [
+                561,
+                236
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 11,
+              "id": "fk_tb_shipments_0",
+              "from": "tb_shipments",
+              "to": "tb_buyer_orders"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payment_methods",
+              "segmentIndex": 0,
+              "from": [
+                537,
+                1870
+              ],
+              "to": [
+                537,
+                1053
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 11,
+              "id": "fk_tb_shipments_0",
+              "from": "tb_shipments",
+              "to": "tb_buyer_orders"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payment_transactions",
+              "segmentIndex": 0,
+              "from": [
+                537,
+                1870
+              ],
+              "to": [
+                537,
+                1053
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 11,
+              "id": "fk_tb_shipments_0",
+              "from": "tb_shipments",
+              "to": "tb_buyer_orders"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_order_cancellations",
+              "segmentIndex": 0,
+              "from": [
+                537,
+                1870
+              ],
+              "to": [
+                537,
+                1053
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 11,
+              "id": "fk_tb_shipments_0",
+              "from": "tb_shipments",
+              "to": "tb_buyer_orders"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_order_returns",
+              "segmentIndex": 0,
+              "from": [
+                537,
+                1870
+              ],
+              "to": [
+                537,
+                1053
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_cancellation_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_cancellation_items",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1978
+              ],
+              "to": [
+                966,
+                358
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_carts_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_carts_items",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1978
+              ],
+              "to": [
+                966,
+                358
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_order_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_order_items",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1978
+              ],
+              "to": [
+                966,
+                358
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_products_categories\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_products_categories",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1978
+              ],
+              "to": [
+                966,
+                358
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_products_users_providers",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1978
+              ],
+              "to": [
+                966,
+                358
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_return_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_return_items",
+              "segmentIndex": 1,
+              "from": [
+                966,
+                1978
+              ],
+              "to": [
+                966,
+                358
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_user_payment_methods\" (unrelated to this relationship) on segment 0 [657, 1978] -> [966, 1978] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 12,
+              "id": "fk_tb_shipments_1",
+              "from": "tb_shipments",
+              "to": "tbc_shipping_carriers"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_user_payment_methods",
+              "segmentIndex": 0,
+              "from": [
+                657,
+                1978
+              ],
+              "to": [
+                966,
+                1978
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_buyer_orders",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_carts",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payments",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payment_methods",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payment_transactions",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_order_cancellations",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_order_returns",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                1986
+              ],
+              "to": [
+                559,
+                208
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_shipments\" (unrelated to this relationship) on segment 0 [846, 1986] -> [559, 1986] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 29,
+              "id": "fk_tbd_user_payment_methods_0",
+              "from": "tbd_user_payment_methods",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_shipments",
+              "segmentIndex": 0,
+              "from": [
+                846,
+                1986
+              ],
+              "to": [
+                559,
+                1986
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_buyer_orders",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_carts",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payments",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payment_methods",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_payment_transactions",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_order_cancellations",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_order_returns",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_shipments\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_shipments",
+              "segmentIndex": 1,
+              "from": [
+                559,
+                2228
+              ],
+              "to": [
+                559,
+                232
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_logs\" (unrelated to this relationship) on segment 0 [846, 2228] -> [559, 2228] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 31,
+              "id": "fk_tbd_users_wishlist_products_0",
+              "from": "tbd_users_wishlist_products",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_logs",
+              "segmentIndex": 0,
+              "from": [
+                846,
+                2228
+              ],
+              "to": [
+                559,
+                2228
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_people\" attribute 2 \"courtesy_title\" needs 214px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 268px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_people",
+              "attributeIndex": 2,
+              "attributeName": "courtesy_title"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 268,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 213.8,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[1].width to at least 268px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_people\" attribute 4 \"family_names\" needs 207px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 261px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_people",
+              "attributeIndex": 4,
+              "attributeName": "family_names"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 261,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 206.89999999999998,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[1].width to at least 261px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_people\" attribute 6 \"gender\" needs 325px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 379px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_people",
+              "attributeIndex": 6,
+              "attributeName": "gender"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 379,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 324.79999999999995,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[1].width to at least 379px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_people\" attribute 10 \"creation_date\" needs 189px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 243px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_people",
+              "attributeIndex": 10,
+              "attributeName": "creation_date"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 243,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 188.3,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[1].width to at least 243px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_user_addresses\" attribute 0 \"id_user_adress\" needs 195px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 249px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_user_addresses",
+              "attributeIndex": 0,
+              "attributeName": "id_user_adress"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 249,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 194.9,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[2].width to at least 249px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_user_addresses\" attribute 3 \"recipient_name\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_user_addresses",
+              "attributeIndex": 3,
+              "attributeName": "recipient_name"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 275,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 220.10000000000002,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_user_addresses\" attribute 4 \"recipient_phone\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_user_addresses",
+              "attributeIndex": 4,
+              "attributeName": "recipient_phone"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 275,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 220.39999999999998,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_user_addresses\" attribute 5 \"delivery_instructions\" needs 267px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 321px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_user_addresses",
+              "attributeIndex": 5,
+              "attributeName": "delivery_instructions"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 321,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 266.3,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[2].width to at least 321px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_user_addresses\" attribute 6 \"latitude\" needs 187px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 241px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_user_addresses",
+              "attributeIndex": 6,
+              "attributeName": "latitude"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 241,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 186.8,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[2].width to at least 241px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_user_addresses\" attribute 7 \"longitude\" needs 194px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 248px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_user_addresses",
+              "attributeIndex": 7,
+              "attributeName": "longitude"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 248,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 193.39999999999998,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[2].width to at least 248px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_categories\" attribute 3 \"sup_id_category\" needs 227px of text but only 186px is available — For this attribute row's text capacity, set entities[3].width to at least 281px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_categories",
+              "attributeIndex": 3,
+              "attributeName": "sup_id_category"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 281,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 226.7,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[3].width to at least 281px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_buyer_orders\" attribute 4 \"fulfillment_status\" needs 625px of text but only 186px is available — For this attribute row's text capacity, set entities[5].width to at least 679px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_buyer_orders",
+              "attributeIndex": 4,
+              "attributeName": "fulfillment_status"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 679,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 624.5,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[5].width to at least 679px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_payments\" attribute 2 \"id_user_payment_method\" needs 248px of text but only 186px is available — For this attribute row's text capacity, set entities[7].width to at least 302px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_payments",
+              "attributeIndex": 2,
+              "attributeName": "id_user_payment_method"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 302,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 247.7,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[7].width to at least 302px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_payments\" attribute 5 \"status\" needs 388px of text but only 186px is available — For this attribute row's text capacity, set entities[7].width to at least 442px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_payments",
+              "attributeIndex": 5,
+              "attributeName": "status"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 442,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 387.79999999999995,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[7].width to at least 442px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_payment_methods\" attribute 3 \"provider_token\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[8].width to at least 275px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_payment_methods",
+              "attributeIndex": 3,
+              "attributeName": "provider_token"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 275,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 220.10000000000002,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[8].width to at least 275px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_payment_transactions\" attribute 3 \"gateway_transaction_id\" needs 229px of text but only 186px is available — For this attribute row's text capacity, set entities[9].width to at least 283px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_payment_transactions",
+              "attributeIndex": 3,
+              "attributeName": "gateway_transaction_id"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 283,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 228.79999999999998,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[9].width to at least 283px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_payment_transactions\" attribute 4 \"response_code\" needs 208px of text but only 186px is available — For this attribute row's text capacity, set entities[9].width to at least 262px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_payment_transactions",
+              "attributeIndex": 4,
+              "attributeName": "response_code"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 262,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 207.2,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[9].width to at least 262px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_order_returns\" attribute 4 \"status\" needs 413px of text but only 186px is available — For this attribute row's text capacity, set entities[11].width to at least 467px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_order_returns",
+              "attributeIndex": 4,
+              "attributeName": "status"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 467,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 413,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[11].width to at least 467px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_shipments\" attribute 3 \"id_user_adress\" needs 195px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 249px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_shipments",
+              "attributeIndex": 3,
+              "attributeName": "id_user_adress"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 249,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 194.9,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[12].width to at least 249px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_shipments\" attribute 4 \"tracking_number\" needs 227px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 281px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_shipments",
+              "attributeIndex": 4,
+              "attributeName": "tracking_number"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 281,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 226.7,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[12].width to at least 281px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_shipments\" attribute 5 \"shipping_cost\" needs 220px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 274px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_shipments",
+              "attributeIndex": 5,
+              "attributeName": "shipping_cost"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 274,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 219.8,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[12].width to at least 274px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_shipments\" attribute 6 \"status\" needs 476px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 530px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_shipments",
+              "attributeIndex": 6,
+              "attributeName": "status"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 530,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 476,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[12].width to at least 530px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tb_logs\" attribute 2 \"table_operation\" needs 397px of text but only 186px is available — For this attribute row's text capacity, set entities[13].width to at least 451px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tb_logs",
+              "attributeIndex": 2,
+              "attributeName": "table_operation"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 451,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 396.79999999999995,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[13].width to at least 451px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbd_address_components\" attribute 0 \"id_address_component\" needs 235px of text but only 186px is available — For this attribute row's text capacity, set entities[14].width to at least 289px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbd_address_components",
+              "attributeIndex": 0,
+              "attributeName": "id_address_component"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 289,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 234.5,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[14].width to at least 289px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbd_address_components\" attribute 5 \"address_sup_id\" needs 239px of text but only 186px is available — For this attribute row's text capacity, set entities[14].width to at least 293px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbd_address_components",
+              "attributeIndex": 5,
+              "attributeName": "address_sup_id"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 293,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 239,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[14].width to at least 293px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbd_order_items\" attribute 7 \"subtotal\" needs 187px of text but only 186px is available — For this attribute row's text capacity, set entities[17].width to at least 241px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbd_order_items",
+              "attributeIndex": 7,
+              "attributeName": "subtotal"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 241,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 186.8,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[17].width to at least 241px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbd_products_users_providers\" attribute 2 \"type_ownership\" needs 384px of text but only 186px is available — For this attribute row's text capacity, set entities[19].width to at least 438px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbd_products_users_providers",
+              "attributeIndex": 2,
+              "attributeName": "type_ownership"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 438,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 383.9,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[19].width to at least 438px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbd_user_payment_methods\" attribute 0 \"id_user_payment_method\" needs 248px of text but only 186px is available — For this attribute row's text capacity, set entities[21].width to at least 302px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbd_user_payment_methods",
+              "attributeIndex": 0,
+              "attributeName": "id_user_payment_method"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 302,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 247.7,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[21].width to at least 302px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbd_user_payment_methods\" attribute 4 \"provider_method_ref\" needs 209px of text but only 186px is available — For this attribute row's text capacity, set entities[21].width to at least 263px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbd_user_payment_methods",
+              "attributeIndex": 4,
+              "attributeName": "provider_method_ref"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 263,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 209,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[21].width to at least 263px, preserving the attribute name, type and key roles."
+            ]
+          },
+          {
+            "code": "erd/attribute-text-capacity",
+            "severity": "error",
+            "message": "Entity \"tbc_shipping_carriers\" attribute 2 \"tracking_url_template\" needs 267px of text but only 186px is available — For this attribute row's text capacity, set entities[24].width to at least 321px, preserving the attribute name, type and key roles.",
+            "subject": {
+              "diagramType": "erd",
+              "entityId": "tbc_shipping_carriers",
+              "attributeIndex": 2,
+              "attributeName": "tracking_url_template"
+            },
+            "evidence": {
+              "entityWidth": 240,
+              "requiredEntityWidth": 321,
+              "availableTextWidth": 186,
+              "requiredTextWidth": 266.3,
+              "paddingWidth": 24,
+              "keyColumnWidth": 30,
+              "nameFontSize": 11,
+              "typeFontSize": 10.5
+            },
+            "supportedFixes": [
+              "For this attribute row's text capacity, set entities[24].width to at least 321px, preserving the attribute name, type and key roles."
+            ]
+          }
+        ],
+        "provenance": "absent",
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      },
+      "execution": "embedded-in-deliver"
+    },
+    "deliver": {
+      "status": "not-run",
+      "execution": "blocked-by-validate"
+    }
+  },
+  "diagnostics": [
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_address_components\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 5,
+        "id": "fk_tb_payment_methods_0",
+        "from": "tb_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_address_components",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1008
+        ],
+        "to": [
+          966,
+          106
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_cancellation_items\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 5,
+        "id": "fk_tb_payment_methods_0",
+        "from": "tb_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_cancellation_items",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1008
+        ],
+        "to": [
+          966,
+          106
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_carts_items\" (unrelated to this relationship) on segment 1 [966, 1008] -> [966, 106] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 5,
+        "id": "fk_tb_payment_methods_0",
+        "from": "tb_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_carts_items",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1008
+        ],
+        "to": [
+          966,
+          106
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[5] id \"fk_tb_payment_methods_0\" \"tb_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_order_items\" (unrelated to this relationship) on segment 0 [657, 1008] -> [966, 1008] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 5,
+        "id": "fk_tb_payment_methods_0",
+        "from": "tb_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_order_items",
+        "segmentIndex": 0,
+        "from": [
+          657,
+          1008
+        ],
+        "to": [
+          966,
+          1008
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 2 [561, 1053] -> [561, 236] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 11,
+        "id": "fk_tb_shipments_0",
+        "from": "tb_shipments",
+        "to": "tb_buyer_orders"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_carts",
+        "segmentIndex": 2,
+        "from": [
+          561,
+          1053
+        ],
+        "to": [
+          561,
+          236
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 2 [561, 1053] -> [561, 236] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 11,
+        "id": "fk_tb_shipments_0",
+        "from": "tb_shipments",
+        "to": "tb_buyer_orders"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payments",
+        "segmentIndex": 2,
+        "from": [
+          561,
+          1053
+        ],
+        "to": [
+          561,
+          236
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 11,
+        "id": "fk_tb_shipments_0",
+        "from": "tb_shipments",
+        "to": "tb_buyer_orders"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payment_methods",
+        "segmentIndex": 0,
+        "from": [
+          537,
+          1870
+        ],
+        "to": [
+          537,
+          1053
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 11,
+        "id": "fk_tb_shipments_0",
+        "from": "tb_shipments",
+        "to": "tb_buyer_orders"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payment_transactions",
+        "segmentIndex": 0,
+        "from": [
+          537,
+          1870
+        ],
+        "to": [
+          537,
+          1053
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 11,
+        "id": "fk_tb_shipments_0",
+        "from": "tb_shipments",
+        "to": "tb_buyer_orders"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_order_cancellations",
+        "segmentIndex": 0,
+        "from": [
+          537,
+          1870
+        ],
+        "to": [
+          537,
+          1053
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[11] id \"fk_tb_shipments_0\" \"tb_shipments\" -> \"tb_buyer_orders\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 0 [537, 1870] -> [537, 1053] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 11,
+        "id": "fk_tb_shipments_0",
+        "from": "tb_shipments",
+        "to": "tb_buyer_orders"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_order_returns",
+        "segmentIndex": 0,
+        "from": [
+          537,
+          1870
+        ],
+        "to": [
+          537,
+          1053
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_cancellation_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_cancellation_items",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1978
+        ],
+        "to": [
+          966,
+          358
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_carts_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_carts_items",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1978
+        ],
+        "to": [
+          966,
+          358
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_order_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_order_items",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1978
+        ],
+        "to": [
+          966,
+          358
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_products_categories\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_products_categories",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1978
+        ],
+        "to": [
+          966,
+          358
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_products_users_providers",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1978
+        ],
+        "to": [
+          966,
+          358
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_return_items\" (unrelated to this relationship) on segment 1 [966, 1978] -> [966, 358] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_return_items",
+        "segmentIndex": 1,
+        "from": [
+          966,
+          1978
+        ],
+        "to": [
+          966,
+          358
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[12] id \"fk_tb_shipments_1\" \"tb_shipments\" -> \"tbc_shipping_carriers\" crosses entity \"tbd_user_payment_methods\" (unrelated to this relationship) on segment 0 [657, 1978] -> [966, 1978] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 12,
+        "id": "fk_tb_shipments_1",
+        "from": "tb_shipments",
+        "to": "tbc_shipping_carriers"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_user_payment_methods",
+        "segmentIndex": 0,
+        "from": [
+          657,
+          1978
+        ],
+        "to": [
+          966,
+          1978
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_buyer_orders",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_carts",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payments",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payment_methods",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payment_transactions",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_order_cancellations",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 1 [559, 1986] -> [559, 208] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_order_returns",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          1986
+        ],
+        "to": [
+          559,
+          208
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[29] id \"fk_tbd_user_payment_methods_0\" \"tbd_user_payment_methods\" -> \"tb_users\" crosses entity \"tb_shipments\" (unrelated to this relationship) on segment 0 [846, 1986] -> [559, 1986] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 29,
+        "id": "fk_tbd_user_payment_methods_0",
+        "from": "tbd_user_payment_methods",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_shipments",
+        "segmentIndex": 0,
+        "from": [
+          846,
+          1986
+        ],
+        "to": [
+          559,
+          1986
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_buyer_orders",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_carts\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_carts",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payments\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payments",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payment_methods\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payment_methods",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_payment_transactions\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_payment_transactions",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_order_cancellations\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_order_cancellations",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_order_returns\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_order_returns",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_shipments\" (unrelated to this relationship) on segment 1 [559, 2228] -> [559, 232] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_shipments",
+        "segmentIndex": 1,
+        "from": [
+          559,
+          2228
+        ],
+        "to": [
+          559,
+          232
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[31] id \"fk_tbd_users_wishlist_products_0\" \"tbd_users_wishlist_products\" -> \"tb_users\" crosses entity \"tb_logs\" (unrelated to this relationship) on segment 0 [846, 2228] -> [559, 2228] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 31,
+        "id": "fk_tbd_users_wishlist_products_0",
+        "from": "tbd_users_wishlist_products",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_logs",
+        "segmentIndex": 0,
+        "from": [
+          846,
+          2228
+        ],
+        "to": [
+          559,
+          2228
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_people\" attribute 2 \"courtesy_title\" needs 214px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 268px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_people",
+        "attributeIndex": 2,
+        "attributeName": "courtesy_title"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 268,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 213.8,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[1].width to at least 268px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_people\" attribute 4 \"family_names\" needs 207px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 261px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_people",
+        "attributeIndex": 4,
+        "attributeName": "family_names"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 261,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 206.89999999999998,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[1].width to at least 261px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_people\" attribute 6 \"gender\" needs 325px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 379px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_people",
+        "attributeIndex": 6,
+        "attributeName": "gender"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 379,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 324.79999999999995,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[1].width to at least 379px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_people\" attribute 10 \"creation_date\" needs 189px of text but only 186px is available — For this attribute row's text capacity, set entities[1].width to at least 243px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_people",
+        "attributeIndex": 10,
+        "attributeName": "creation_date"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 243,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 188.3,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[1].width to at least 243px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_user_addresses\" attribute 0 \"id_user_adress\" needs 195px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 249px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_user_addresses",
+        "attributeIndex": 0,
+        "attributeName": "id_user_adress"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 249,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 194.9,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[2].width to at least 249px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_user_addresses\" attribute 3 \"recipient_name\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_user_addresses",
+        "attributeIndex": 3,
+        "attributeName": "recipient_name"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 275,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 220.10000000000002,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_user_addresses\" attribute 4 \"recipient_phone\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_user_addresses",
+        "attributeIndex": 4,
+        "attributeName": "recipient_phone"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 275,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 220.39999999999998,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[2].width to at least 275px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_user_addresses\" attribute 5 \"delivery_instructions\" needs 267px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 321px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_user_addresses",
+        "attributeIndex": 5,
+        "attributeName": "delivery_instructions"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 321,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 266.3,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[2].width to at least 321px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_user_addresses\" attribute 6 \"latitude\" needs 187px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 241px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_user_addresses",
+        "attributeIndex": 6,
+        "attributeName": "latitude"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 241,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 186.8,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[2].width to at least 241px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_user_addresses\" attribute 7 \"longitude\" needs 194px of text but only 186px is available — For this attribute row's text capacity, set entities[2].width to at least 248px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_user_addresses",
+        "attributeIndex": 7,
+        "attributeName": "longitude"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 248,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 193.39999999999998,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[2].width to at least 248px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_categories\" attribute 3 \"sup_id_category\" needs 227px of text but only 186px is available — For this attribute row's text capacity, set entities[3].width to at least 281px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_categories",
+        "attributeIndex": 3,
+        "attributeName": "sup_id_category"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 281,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 226.7,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[3].width to at least 281px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_buyer_orders\" attribute 4 \"fulfillment_status\" needs 625px of text but only 186px is available — For this attribute row's text capacity, set entities[5].width to at least 679px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_buyer_orders",
+        "attributeIndex": 4,
+        "attributeName": "fulfillment_status"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 679,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 624.5,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[5].width to at least 679px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_payments\" attribute 2 \"id_user_payment_method\" needs 248px of text but only 186px is available — For this attribute row's text capacity, set entities[7].width to at least 302px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_payments",
+        "attributeIndex": 2,
+        "attributeName": "id_user_payment_method"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 302,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 247.7,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[7].width to at least 302px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_payments\" attribute 5 \"status\" needs 388px of text but only 186px is available — For this attribute row's text capacity, set entities[7].width to at least 442px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_payments",
+        "attributeIndex": 5,
+        "attributeName": "status"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 442,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 387.79999999999995,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[7].width to at least 442px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_payment_methods\" attribute 3 \"provider_token\" needs 221px of text but only 186px is available — For this attribute row's text capacity, set entities[8].width to at least 275px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_payment_methods",
+        "attributeIndex": 3,
+        "attributeName": "provider_token"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 275,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 220.10000000000002,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[8].width to at least 275px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_payment_transactions\" attribute 3 \"gateway_transaction_id\" needs 229px of text but only 186px is available — For this attribute row's text capacity, set entities[9].width to at least 283px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_payment_transactions",
+        "attributeIndex": 3,
+        "attributeName": "gateway_transaction_id"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 283,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 228.79999999999998,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[9].width to at least 283px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_payment_transactions\" attribute 4 \"response_code\" needs 208px of text but only 186px is available — For this attribute row's text capacity, set entities[9].width to at least 262px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_payment_transactions",
+        "attributeIndex": 4,
+        "attributeName": "response_code"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 262,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 207.2,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[9].width to at least 262px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_order_returns\" attribute 4 \"status\" needs 413px of text but only 186px is available — For this attribute row's text capacity, set entities[11].width to at least 467px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_order_returns",
+        "attributeIndex": 4,
+        "attributeName": "status"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 467,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 413,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[11].width to at least 467px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_shipments\" attribute 3 \"id_user_adress\" needs 195px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 249px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_shipments",
+        "attributeIndex": 3,
+        "attributeName": "id_user_adress"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 249,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 194.9,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[12].width to at least 249px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_shipments\" attribute 4 \"tracking_number\" needs 227px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 281px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_shipments",
+        "attributeIndex": 4,
+        "attributeName": "tracking_number"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 281,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 226.7,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[12].width to at least 281px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_shipments\" attribute 5 \"shipping_cost\" needs 220px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 274px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_shipments",
+        "attributeIndex": 5,
+        "attributeName": "shipping_cost"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 274,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 219.8,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[12].width to at least 274px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_shipments\" attribute 6 \"status\" needs 476px of text but only 186px is available — For this attribute row's text capacity, set entities[12].width to at least 530px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_shipments",
+        "attributeIndex": 6,
+        "attributeName": "status"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 530,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 476,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[12].width to at least 530px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tb_logs\" attribute 2 \"table_operation\" needs 397px of text but only 186px is available — For this attribute row's text capacity, set entities[13].width to at least 451px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tb_logs",
+        "attributeIndex": 2,
+        "attributeName": "table_operation"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 451,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 396.79999999999995,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[13].width to at least 451px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbd_address_components\" attribute 0 \"id_address_component\" needs 235px of text but only 186px is available — For this attribute row's text capacity, set entities[14].width to at least 289px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbd_address_components",
+        "attributeIndex": 0,
+        "attributeName": "id_address_component"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 289,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 234.5,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[14].width to at least 289px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbd_address_components\" attribute 5 \"address_sup_id\" needs 239px of text but only 186px is available — For this attribute row's text capacity, set entities[14].width to at least 293px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbd_address_components",
+        "attributeIndex": 5,
+        "attributeName": "address_sup_id"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 293,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 239,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[14].width to at least 293px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbd_order_items\" attribute 7 \"subtotal\" needs 187px of text but only 186px is available — For this attribute row's text capacity, set entities[17].width to at least 241px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbd_order_items",
+        "attributeIndex": 7,
+        "attributeName": "subtotal"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 241,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 186.8,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[17].width to at least 241px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbd_products_users_providers\" attribute 2 \"type_ownership\" needs 384px of text but only 186px is available — For this attribute row's text capacity, set entities[19].width to at least 438px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbd_products_users_providers",
+        "attributeIndex": 2,
+        "attributeName": "type_ownership"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 438,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 383.9,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[19].width to at least 438px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbd_user_payment_methods\" attribute 0 \"id_user_payment_method\" needs 248px of text but only 186px is available — For this attribute row's text capacity, set entities[21].width to at least 302px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbd_user_payment_methods",
+        "attributeIndex": 0,
+        "attributeName": "id_user_payment_method"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 302,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 247.7,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[21].width to at least 302px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbd_user_payment_methods\" attribute 4 \"provider_method_ref\" needs 209px of text but only 186px is available — For this attribute row's text capacity, set entities[21].width to at least 263px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbd_user_payment_methods",
+        "attributeIndex": 4,
+        "attributeName": "provider_method_ref"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 263,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 209,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[21].width to at least 263px, preserving the attribute name, type and key roles."
+      ]
+    },
+    {
+      "code": "erd/attribute-text-capacity",
+      "severity": "error",
+      "message": "Entity \"tbc_shipping_carriers\" attribute 2 \"tracking_url_template\" needs 267px of text but only 186px is available — For this attribute row's text capacity, set entities[24].width to at least 321px, preserving the attribute name, type and key roles.",
+      "subject": {
+        "diagramType": "erd",
+        "entityId": "tbc_shipping_carriers",
+        "attributeIndex": 2,
+        "attributeName": "tracking_url_template"
+      },
+      "evidence": {
+        "entityWidth": 240,
+        "requiredEntityWidth": 321,
+        "availableTextWidth": 186,
+        "requiredTextWidth": 266.3,
+        "paddingWidth": 24,
+        "keyColumnWidth": 30,
+        "nameFontSize": 11,
+        "typeFontSize": 10.5
+      },
+      "supportedFixes": [
+        "For this attribute row's text capacity, set entities[24].width to at least 321px, preserving the attribute name, type and key roles."
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.finalize.json",
+    "summaryReceipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "validate",
+  "finishedAt": "2026-11-19T06:58:39.077Z",
+  "durationMs": 4214,
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+    "severity": "normal",
+    "checkedAt": "2026-11-19T06:58:18.427Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.1.0 → 3.2.0. A previous check at 2026-11-19T06:58:18.427Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "erd",
+  "quality": "standard",
+  "startedAt": "2026-11-19T07:14:36.693Z",
+  "specification": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+    "sha256": "0790f73ea5f0c76cb8b890e0b01358f5e8a21e73a62c20bf49882f9f720b5730",
+    "bytes": 38118
+  },
+  "artifact": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\probe-keys.html"
+  },
+  "stages": {
+    "validate": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": null,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\jeig2\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "erd",
+        "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+        "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\probe-keys.html",
+        "--quality",
+        "standard",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "deliver",
+        "receiptId": "16f8423b-d863-4315-9f22-2a9ea3142219",
+        "stage": "render",
+        "type": "erd",
+        "input": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+        "output": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\probe-keys.html",
+        "error": "Entity-relationship layout validation failed:\n- [clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [1925, 2010] -> [1925, 16] (2px clearance) — if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity.",
+        "diagnostics": [
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [1925, 2010] -> [1925, 16] (2px clearance) — if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 30,
+              "id": "fk_tbd_user_payment_methods_1",
+              "from": "tbd_user_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tbd_products_users_providers",
+              "segmentIndex": 1,
+              "from": [
+                1925,
+                2010
+              ],
+              "to": [
+                1925,
+                16
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          }
+        ],
+        "provenance": "absent",
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      },
+      "execution": "embedded-in-deliver"
+    },
+    "deliver": {
+      "status": "not-run",
+      "execution": "blocked-by-validate"
+    }
+  },
+  "diagnostics": [
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [1925, 2010] -> [1925, 16] (2px clearance) — if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_products_users_providers",
+        "segmentIndex": 1,
+        "from": [
+          1925,
+          2010
+        ],
+        "to": [
+          1925,
+          16
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-keys-probe2\\probe-keys.finalize.json",
+    "summaryReceipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-keys-probe2\\probe-keys.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "validate",
+  "finishedAt": "2026-11-19T07:14:40.809Z",
+  "durationMs": 4116,
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+    "severity": "normal",
+    "checkedAt": "2026-11-19T06:58:18.427Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.1.0 → 3.2.0. A previous check at 2026-11-19T06:58:18.427Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+  }
+}
