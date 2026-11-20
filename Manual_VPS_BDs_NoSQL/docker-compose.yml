@@ -1,0 +1,108 @@
+services:
+  postgres_jhon:
+    image: postgres:15-alpine
+    container_name: postgres_jhon
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-jhony40080}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-db_40080}
+    ports:
+      - "${PG_PORT:-40080}:5432"
+    volumes:
+      - postgres_data_jhon:/var/lib/postgresql/data
+    networks:
+      - stack_jhon_net
+
+  mysql_jhon:
+    image: mysql:8.0
+    container_name: mysql_jhon
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-db_test_7b}
+      MYSQL_USER: ${MYSQL_USER:-jhon_jojos}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT:-40081}:3306"
+    volumes:
+      - mysql_data_jhon:/var/lib/mysql
+    networks:
+      - stack_jhon_net
+
+  pgadmin_jhon:
+    image: dpage/pgadmin4:7.8
+    container_name: pgadmin_jhon
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-240080@utxicotepec.edu.mx}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_CONFIG_SERVER_MODE: "True"
+    ports:
+      - "${PGADMIN_PORT:-40082}:80"
+    depends_on:
+      - postgres_jhon
+    networks:
+      - stack_jhon_net
+
+  mongodb_jhon:
+    image: mongo:7
+    container_name: mongodb_bitwatt
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-ecommerce_nosql}
+    ports:
+      - "${MONGO_PORT:-40085}:27017"
+    volumes:
+      - mongo_data_jhon:/data/db
+      - ./mongodb:/docker-entrypoint-initdb.d
+    networks:
+      - stack_jhon_net
+
+  mongo_express_jhon:
+    image: mongo-express:1.0.2-20-alpine3.19
+    container_name: mongo_express_jhon
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb_jhon
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      ME_CONFIG_BASICAUTH_USERNAME: ${ME_CONFIG_BASICAUTH_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${ME_CONFIG_BASICAUTH_PASSWORD}
+    ports:
+      - "${MONGO_EXPRESS_PORT:-40086}:8081"
+    depends_on:
+      - mongodb_jhon
+    networks:
+      - stack_jhon_net
+
+  graphql_jhon:
+    build: ./graphql
+    container_name: graphql_jhon
+    restart: always
+    environment:
+      MONGO_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb_jhon:27017/${MONGO_INITDB_DATABASE:-ecommerce_nosql}?authSource=admin
+      MONGO_DB: ${MONGO_INITDB_DATABASE:-ecommerce_nosql}
+      PORT: ${GRAPHQL_PORT:-40087}
+    ports:
+      - "${GRAPHQL_PORT:-40087}:40087"
+    depends_on:
+      - mongodb_jhon
+    networks:
+      - stack_jhon_net
+
+volumes:
+  postgres_data_jhon:
+    driver: local
+  mysql_data_jhon:
+    driver: local
+  mongo_data_jhon:
+    driver: local
+
+networks:
+  stack_jhon_net:
+    driver: bridge

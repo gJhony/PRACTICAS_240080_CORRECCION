@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+jspm_packages/
+bower_components/
+
+# React / build artifacts
+build/
+dist/
+out/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+next build/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables (never commit real credentials)
+.env
+.env.*
+!.env.example
+
+# Runtime / caches
+.cache/
+.parcel-cache/
+.npm/
+.eslintcache
+.stylelintcache
+.turbo/
+.vite/
+*.tsbuildinfo
+
+# Testing
+coverage/
+.coverage
+.nyc_output/
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python / misc helpers
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Databases / temporary files
+*.sqlite
+*.db
+*.tmp
+*.bak
