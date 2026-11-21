@@ -72,3 +72,25 @@ venv/
 *.db
 *.tmp
 *.bak
+*.temp
+*.orig
+*.old
+
+# Credenciales y secretos (Indicador 56: NUNCA versionar secretos reales)
+.env.local
+.env.*.local
+.env.production
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+*.keystore
+credentials*.json
+service-account*.json
+secrets/
+secret_*.txt
+passwords*.txt
+*.kdbx
+id_rsa*

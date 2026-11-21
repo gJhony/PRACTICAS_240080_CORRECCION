@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<title>UTXJ · Unidad 2 · IDs SQL reales y entregables</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b1526;color:#e8edf5;font-family:"Segoe UI",Arial,sans-serif;padding:36px 44px}
+h1{margin:0;font-size:30px;color:#fff}h2{margin:22px 0 12px;font-size:19px;color:#ffd166}
+.tag{display:inline-block;background:#12345b;color:#9fd3ff;border:1px solid #2b6094;border-radius:20px;padding:5px 13px;font-size:12px;margin-right:8px}
+.header{border-bottom:3px solid #ffd166;padding-bottom:18px;margin-bottom:20px}
+.sub{color:#a9bad0;font-size:14px;margin-top:8px;line-height:1.6}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;background:#101d33;border-radius:8px;overflow:hidden}
+th{background:#1b3b63;color:#cfe6ff;text-align:left;padding:9px 11px}td{padding:8px 11px;border-top:1px solid #223757;color:#d6e2f0}
+code{color:#7ee0a8;font-family:Consolas,monospace}.warn{color:#ffd166}
+.box{background:#13213a;border:1px solid #29426b;border-radius:9px;padding:15px;font-size:12.5px;line-height:1.8;color:#c7d6e8}
+.ok{color:#7ee0a8}.foot{margin-top:16px;color:#7f93ad;font-size:11px}
+</style></head><body>
+<div class="header">
+  <span class="tag">UTXJ</span><span class="tag">Indicador 39 · Criterio crítico 4</span><span class="tag">SQL → NoSQL</span>
+  <h1>Consistencia referencial con IDs reales de SQL</h1>
+  <div class="sub">Fuente: <code>C:\Users\mario\OneDrive\Escritorio\finalfinal.sql</code> · dump MySQL de <b>db_test_7b</b> (prácticas BDN 240080).<br>Se revisaron además los respaldos de <i>practicas-bdn</i> y el dump PostgreSQL para confirmar el origen de los datos.</div>
+</div>
+
+<div class="cols">
+<div>
+<h2>Identificadores extraídos</h2>
+<table><tr><th>Tabla SQL</th><th>Columna</th><th>IDs usados en MongoDB</th></tr>
+<tr><td>tb_users</td><td>id_user</td><td><code>2, 5, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17</code></td></tr>
+<tr><td>tb_people</td><td>id_people</td><td><code>5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</code></td></tr>
+<tr><td>tb_products</td><td>id_product</td><td><code>1 … 12</code></td></tr>
+<tr><td>tb_buyer_orders<br>tb_shipments</td><td>id_buyer_order<br>id_shipment</td><td class="warn">Sin filas en el dump: id_order se correlaciona con tb_people.id_people y se documenta en cada documento.</td></tr>
+</table>
+
+<h2>Filas verificables del dump</h2>
+<div class="box">
+<code>INSERT INTO tb_users VALUES (2,'240080@utxicotepec.edu.mx','JEIG',...);</code><br>
+<code>INSERT INTO tb_people VALUES (5,2,'Sr./Sra.','JEIG',...);</code><br>
+<code>INSERT INTO tb_products VALUES (1,'BOING-MNG-500','Boing Mango',...);</code>
+</div>
+</div>
+
+<div>
+<h2>Entregables de la Unidad 2</h2>
+<div class="box">
+<span class="ok">✔</span> docker-compose.yml · 6 servicios, 3 volúmenes, red stack_jhon_net<br>
+<span class="ok">✔</span> .env.example + .gitignore · <b>0 secretos reales</b> versionados<br>
+<span class="ok">✔</span> mongodb/01 … 06 · roles, esquemas, 36 documentos, 14 índices, 5 vistas, pruebas<br>
+<span class="ok">✔</span> graphql/ · Dockerfile + Apollo Server + 7 roles + auditoría automática<br>
+<span class="ok">✔</span> README.md · arquitectura, puertos, comandos VPS, matriz de roles<br>
+<span class="ok">✔</span> Reporte_Unidad2_Equipo.docx / .pdf · 7 capítulos obligatorios<br>
+<span class="ok">✔</span> Rama <b>Manual_VPS_BDs_NoSQL</b> · sin merge a main
+</div>
+
+<h2>Validación ejecutada localmente</h2>
+<div class="box">
+<span class="ok">✔</span> <code>node --check</code> en los 6 scripts JS y en los 7 módulos GraphQL<br>
+<span class="ok">✔</span> <code>docker compose --env-file .env.example config</code> → OK<br>
+<span class="ok">✔</span> Búsqueda de secretos en el repositorio → sin credenciales reales<br>
+<span class="warn">◻</span> Capturas del VPS (terminal, Mongo Express, GraphQL) → espacios <code>[PEGAR CAPTURA AQUÍ]</code> en el reporte
+</div>
+</div>
+</div>
+<div class="foot">Panel generado para el Reporte de la Unidad 2 · Equipo 240080 · 20 NOV 2026.</div>
+</body></html>

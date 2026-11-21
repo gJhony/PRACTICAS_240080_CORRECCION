@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<title>UTXJ · Unidad 2 · Matriz de roles</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b1526;color:#e8edf5;font-family:"Segoe UI",Arial,sans-serif;padding:36px 44px}
+h1{margin:0;font-size:31px;color:#fff}h2{margin:22px 0 12px;font-size:19px;color:#ffd166}
+.tag{display:inline-block;background:#12345b;color:#9fd3ff;border:1px solid #2b6094;border-radius:20px;padding:5px 13px;font-size:12px;margin-right:8px}
+.header{border-bottom:3px solid #ffd166;padding-bottom:18px;margin-bottom:20px}
+.sub{color:#a9bad0;font-size:14px;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;background:#101d33;border-radius:8px;overflow:hidden}
+th{background:#1b3b63;color:#cfe6ff;text-align:left;padding:10px 9px;font-size:12px}td{padding:9px;border-top:1px solid #223757;color:#d6e2f0;vertical-align:top}
+.rol{font-weight:700;color:#fff}.usr{color:#9fd3ff;font-family:Consolas,monospace;font-size:11px}
+.ok{color:#7ee0a8}.no{color:#ff8f8f}.par{color:#ffd166}
+.legend{margin-top:16px;background:#13213a;border:1px solid #29426b;border-radius:8px;padding:13px;color:#b7c9de;font-size:12px;line-height:1.7}
+.foot{margin-top:16px;color:#7f93ad;font-size:11px}
+</style></head><body>
+<div class="header">
+  <span class="tag">UTXJ</span><span class="tag">Apartado D · Indicadores 20-29</span><span class="tag">7 roles e-commerce</span>
+  <h1>Matriz de seguridad MongoDB · ecommerce_nosql</h1>
+  <div class="sub">Roles personalizados granulares por colección + roles integrados. Una cuenta por rol, contraseñas parametrizadas desde <b>.env</b> (nunca en Git).</div>
+</div>
+
+<table>
+<tr><th>Rol</th><th>Usuario</th><th>Direcciones</th><th>Reseñas</th><th>Envíos</th><th>Vistas</th><th>col_logs</th><th>Evidencia</th></tr>
+<tr><td class="rol">superadmin</td><td class="usr">usr_superadmin</td><td class="ok">CRUD</td><td class="ok">CRUD</td><td class="ok">CRUD</td><td class="ok">Todas</td><td class="ok">R/W + admin</td><td>Control total de la BD</td></tr>
+<tr><td class="rol">admin</td><td class="usr">usr_admin</td><td class="ok">CRUD</td><td class="ok">CRUD</td><td class="ok">CRUD</td><td class="ok">Todas</td><td class="ok">R/W</td><td>CRUD de prueba auditado</td></tr>
+<tr><td class="rol">seller</td><td class="usr">usr_seller</td><td class="par">R</td><td class="ok">C/R/U</td><td class="par">R/U</td><td class="ok">4 vistas</td><td class="par">Solo INSERT</td><td>No puede borrar logs</td></tr>
+<tr><td class="rol">buyer</td><td class="usr">usr_buyer</td><td class="ok">C/R/U</td><td class="par">C/R</td><td class="par">R</td><td class="ok">3 vistas</td><td class="par">Solo INSERT</td><td>No puede borrar envíos</td></tr>
+<tr><td class="rol">support</td><td class="usr">usr_support</td><td class="par">R</td><td class="par">R/U</td><td class="par">R/U</td><td class="ok">5 vistas</td><td class="ok">R + INSERT</td><td>Moderación y estatus</td></tr>
+<tr><td class="rol">common</td><td class="usr">usr_common</td><td class="ok">C/R/U</td><td class="no">DENEGADO</td><td class="no">DENEGADO</td><td class="par">Públicas</td><td class="par">Solo INSERT</td><td>No lee colección cruda</td></tr>
+<tr><td class="rol">not_registered</td><td class="usr">usr_not_registered</td><td class="no">DENEGADO</td><td class="no">DENEGADO</td><td class="no">DENEGADO</td><td class="par">Solo vw_public_reviews</td><td class="no">DENEGADO</td><td>Solo lectura pública</td></tr>
+</table>
+
+<div class="legend">
+<b>Pruebas automatizadas (06_tests_crud.js):</b> CREATE/READ/UPDATE/DELETE con roles autorizados · intentos <span class="no">AUTH_DENIED</span> de <i>not_registered</i>, <i>common</i>, <i>buyer</i> y <i>seller</i> · cada resultado se escribe en <b>col_logs</b> con fecha_hora, usuario, rol, ip, colección, documento_id, estado y datos anteriores/posteriores.<br>
+<b>API GraphQL:</b> la misma matriz se aplica en <i>src/roles.js</i> leyendo los headers <b>x-user</b> y <b>x-role</b>; un intento prohibido devuelve <b>FORBIDDEN</b> y registra <b>AUTH_DENIED</b>.
+</div>
+<div class="foot">Panel generado para el Reporte de la Unidad 2 · Equipo 240080.</div>
+</body></html>

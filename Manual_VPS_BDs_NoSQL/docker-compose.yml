@@ -1,3 +1,10 @@
+# ==============================================================================
+# UTXJ - Optativa I: Bases de Datos en la Nube - Unidad 2
+# Stack hibrido SQL + NoSQL en VPS Hostinger (5.183.9.45)
+# Nombres de servicios/contenedores, volumenes, red y puertos CONSERVADOS.
+# Todas las credenciales se leen de .env (ver .env.example). NO hay secretos aqui.
+# ==============================================================================
+
 services:
   postgres_jhon:
     image: postgres:15-alpine
@@ -53,11 +60,26 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-ecommerce_nosql}
+      # Contrasenas de los 7 usuarios de la BD (scripts 01_users_roles.js).
+      MONGO_USR_SUPERADMIN_PASSWORD: ${MONGO_USR_SUPERADMIN_PASSWORD}
+      MONGO_USR_ADMIN_PASSWORD: ${MONGO_USR_ADMIN_PASSWORD}
+      MONGO_USR_SELLER_PASSWORD: ${MONGO_USR_SELLER_PASSWORD}
+      MONGO_USR_BUYER_PASSWORD: ${MONGO_USR_BUYER_PASSWORD}
+      MONGO_USR_SUPPORT_PASSWORD: ${MONGO_USR_SUPPORT_PASSWORD}
+      MONGO_USR_COMMON_PASSWORD: ${MONGO_USR_COMMON_PASSWORD}
+      MONGO_USR_NOT_REGISTERED_PASSWORD: ${MONGO_USR_NOT_REGISTERED_PASSWORD}
     ports:
       - "${MONGO_PORT:-40085}:27017"
     volumes:
       - mongo_data_jhon:/data/db
-      - ./mongodb:/docker-entrypoint-initdb.d
+      - ./mongodb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # ping no requiere autenticacion; valida que mongod ya acepte conexiones.
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ ping: 1 }).ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
     networks:
       - stack_jhon_net
 
@@ -77,7 +99,8 @@ services:
     ports:
       - "${MONGO_EXPRESS_PORT:-40086}:8081"
     depends_on:
-      - mongodb_jhon
+      mongodb_jhon:
+        condition: service_healthy
     networks:
       - stack_jhon_net
 
@@ -88,12 +111,15 @@ services:
     environment:
       MONGO_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb_bitwatt:27017/${MONGO_INITDB_DATABASE:-ecommerce_nosql}?authSource=admin
       MONGO_DB: ${MONGO_INITDB_DATABASE:-ecommerce_nosql}
-      PORT: ${GRAPHQL_PORT:-40087}
-      GRAPHQL_PORT: ${GRAPHQL_PORT:-40087}
+      # El servicio escucha fijo en 40087 dentro del contenedor; el host mapea
+      # GRAPHQL_PORT (40087) al mismo puerto interno.
+      PORT: "40087"
+      GRAPHQL_PORT: "40087"
     ports:
       - "${GRAPHQL_PORT:-40087}:40087"
     depends_on:
-      - mongodb_jhon
+      mongodb_jhon:
+        condition: service_healthy
     networks:
       - stack_jhon_net
 

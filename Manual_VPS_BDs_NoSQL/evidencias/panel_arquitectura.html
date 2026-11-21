@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<title>UTXJ · Unidad 2 · Arquitectura y puertos</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b1526;color:#e8edf5;font-family:"Segoe UI",Arial,sans-serif;padding:36px 44px}
+h1{margin:0;font-size:31px;letter-spacing:.5px;color:#fff}h2{margin:0 0 14px;font-size:19px;color:#ffd166}
+.tag{display:inline-block;background:#12345b;color:#9fd3ff;border:1px solid #2b6094;border-radius:20px;padding:5px 13px;font-size:12px;margin-right:8px}
+.header{border-bottom:3px solid #ffd166;padding-bottom:18px;margin-bottom:24px}
+.sub{color:#a9bad0;font-size:14px;margin-top:8px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.card{background:#13213a;border:1px solid #29426b;border-radius:10px;padding:16px}
+.card .name{font-weight:700;font-size:16px;color:#fff}.card .port{float:right;color:#ffd166;font-weight:700}
+.card .meta{color:#9fb3cc;font-size:12px;margin-top:7px;line-height:1.5}
+.db{border-color:#3d7a5a}.web{border-color:#6b5b9e}.api{border-color:#a06b3d}
+table{width:100%;border-collapse:collapse;background:#101d33;font-size:13px;border-radius:8px;overflow:hidden}
+th{background:#1b3b63;color:#cfe6ff;text-align:left;padding:10px 12px}td{padding:9px 12px;border-top:1px solid #223757;color:#d6e2f0}
+.foot{margin-top:18px;color:#7f93ad;font-size:11px}
+.arrow{text-align:center;color:#5f86b5;font-size:13px;letter-spacing:6px;margin:-6px 0}
+</style></head><body>
+<div class="header">
+  <span class="tag">UTXJ</span><span class="tag">Optativa I · BD en la Nube</span><span class="tag">Unidad 2 · 20 NOV 2026</span>
+  <h1>Arquitectura del stack híbrido SQL + NoSQL</h1>
+  <div class="sub">VPS Hostinger · IP pública <b>5.183.9.45</b> · Red Docker <b>stack_jhon_net</b> · Rama <b>Manual_VPS_BDs_NoSQL</b><br>
+  PostgreSQL y pgAdmin de la Unidad 1 se conservan intactos; se añaden MongoDB, Mongo Express y la API GraphQL.</div>
+</div>
+
+<h2>Servicios desplegados (puertos de host)</h2>
+<div class="grid">
+  <div class="card"><span class="port">40080</span><div class="name">postgres_jhon</div><div class="meta">PostgreSQL 15 alpine<br>BD db_40080 · usuario jhony40080<br>Volumen postgres_data_jhon</div></div>
+  <div class="card"><span class="port">40081</span><div class="name">mysql_jhon</div><div class="meta">MySQL 8.0<br>BD db_test_7b · usuario jhon_jojos<br>Volumen mysql_data_jhon</div></div>
+  <div class="card web"><span class="port">40082</span><div class="name">pgadmin_jhon</div><div class="meta">pgAdmin 4 (web)<br>Consola remota PostgreSQL<br>depends_on: postgres_jhon</div></div>
+</div>
+<div class="arrow">▼ ▼ ▼</div>
+<div class="grid">
+  <div class="card db"><span class="port">40085</span><div class="name">mongodb_bitwatt</div><div class="meta">mongo:7 · BD ecommerce_nosql<br>6 scripts de inicialización montados<br>Volumen mongo_data_jhon</div></div>
+  <div class="card web"><span class="port">40086</span><div class="name">mongo_express_jhon</div><div class="meta">Mongo Express 1.0.2<br>Basic Auth + admin de MongoDB<br>depends_on: healthy</div></div>
+  <div class="card api"><span class="port">40087</span><div class="name">graphql_jhon</div><div class="meta">Apollo Server + Express + driver MongoDB<br>/graphql y /health<br>Headers x-user · x-role · x-forwarded-for</div></div>
+</div>
+
+<h2>Tabla de puertos y contenedores</h2>
+<table><tr><th>Servicio</th><th>Container</th><th>Host</th><th>Interno</th><th>Uso</th></tr>
+<tr><td>postgres_jhon</td><td>postgres_jhon</td><td>40080</td><td>5432</td><td>SQL relacional Unidad 1</td></tr>
+<tr><td>mysql_jhon</td><td>mysql_jhon</td><td>40081</td><td>3306</td><td>SQL db_test_7b (IDs reales)</td></tr>
+<tr><td>pgadmin_jhon</td><td>pgadmin_jhon</td><td>40082</td><td>80</td><td>Administración PostgreSQL</td></tr>
+<tr><td>mongodb_jhon</td><td>mongodb_bitwatt</td><td><b>40085</b></td><td>27017</td><td>NoSQL ecommerce_nosql</td></tr>
+<tr><td>mongo_express_jhon</td><td>mongo_express_jhon</td><td><b>40086</b></td><td>8081</td><td>Administración MongoDB</td></tr>
+<tr><td>graphql_jhon</td><td>graphql_jhon</td><td><b>40087</b></td><td>40087</td><td>API GraphQL + auditoría</td></tr>
+</table>
+<div class="foot">Panel generado para el Reporte de la Unidad 2 · Equipo 240080 · Evidencia complementaria (las capturas reales del VPS se pegan en el DOCX).</div>
+</body></html>
