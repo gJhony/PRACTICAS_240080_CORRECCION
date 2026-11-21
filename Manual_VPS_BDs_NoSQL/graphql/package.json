@@ -1,9 +1,17 @@
 {
-  "name": "graphql-service",
+  "name": "utxj-ecommerce-graphql",
   "version": "1.0.0",
-  "description": "Servicio GraphQL inicial para el stack",
-  "main": "server.js",
+  "private": true,
+  "description": "API GraphQL sobre MongoDB ecommerce_nosql - UTXJ Unidad 2",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/index.js",
+    "check": "node --check src/index.js && node --check src/resolvers.js && node --check src/audit.js && node --check src/roles.js && node --check src/db.js && node --check src/schema.js && node --check src/scalars.js"
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.21.2",
+    "graphql": "^16.11.0",
+    "mongodb": "^6.17.0"
   }
 }
