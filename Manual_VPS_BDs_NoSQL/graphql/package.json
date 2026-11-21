@@ -1,0 +1,9 @@
+{
+  "name": "graphql-service",
+  "version": "1.0.0",
+  "description": "Servicio GraphQL inicial para el stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
