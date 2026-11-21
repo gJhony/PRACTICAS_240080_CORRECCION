@@ -8,11 +8,15 @@ let client = null;
 let database = null;
 
 async function conectar() {
-  const intentos = Number(process.env.MONGO_RETRY || 20);
+  const intentos = Number(process.env.MONGO_RETRY || 30);
+  const esperaMs = Number(process.env.MONGO_RETRY_DELAY_MS || 2000);
+  const timeoutMs = Number(process.env.MONGO_SELECTION_TIMEOUT_MS || 8000);
   for (let i = 1; i <= intentos; i++) {
     try {
-      client = new MongoClient(uri, { serverSelectionTimeoutMS: 4000 });
+      client = new MongoClient(uri, { serverSelectionTimeoutMS: timeoutMs });
       await client.connect();
+      // Ping explicito: asegura que mongod ya acepta operaciones antes de servir.
+      await client.db("admin").command({ ping: 1 });
       database = client.db(dbName);
       console.log(`[db] Conectado a ${dbName} (intento ${i})`);
       return database;
@@ -20,7 +24,7 @@ async function conectar() {
       console.warn(`[db] Intento ${i}/${intentos} fallido: ${err.message}`);
       if (client) { try { await client.close(); } catch (_) {} client = null; }
       if (i === intentos) throw err;
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, esperaMs));
     }
   }
 }

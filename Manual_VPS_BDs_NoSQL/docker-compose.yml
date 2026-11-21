@@ -111,10 +111,15 @@ services:
     environment:
       MONGO_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb_bitwatt:27017/${MONGO_INITDB_DATABASE:-ecommerce_nosql}?authSource=admin
       MONGO_DB: ${MONGO_INITDB_DATABASE:-ecommerce_nosql}
-      # El servicio escucha fijo en 40087 dentro del contenedor; el host mapea
+      # El servicio escucha en 0.0.0.0:40087 dentro del contenedor; el host mapea
       # GRAPHQL_PORT (40087) al mismo puerto interno.
+      HOST: "0.0.0.0"
       PORT: "40087"
       GRAPHQL_PORT: "40087"
+      # Reintentos de conexion a MONGO_URI si mongod tarda en arrancar.
+      MONGO_RETRY: "30"
+      MONGO_RETRY_DELAY_MS: "2000"
+      MONGO_SELECTION_TIMEOUT_MS: "8000"
     ports:
       - "${GRAPHQL_PORT:-40087}:40087"
     depends_on:
