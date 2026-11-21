@@ -4,19 +4,42 @@
 // =============================================================================
 // Las vistas se ejecutan con los privilegios del usuario que las consulta:
 // por eso not_registered solo puede leer vw_public_reviews.
-// Re-executable: se recrean (son derivadas, no almacenan datos propios).
+// Re-ejecutable: si la vista ya existe con el MISMO pipeline se conserva; solo
+// se reconstruye cuando la definicion cambio (son objetos derivados, no guardan
+// datos propios). Ningun error aborta el script.
 // =============================================================================
 
 db = db.getSiblingDB("ecommerce_nosql");
 
 function crearVista(nombre, fuente, pipeline, proposito) {
-  const existe = db.getCollectionNames().indexOf(nombre) !== -1;
-  if (existe) {
-    db.getCollection(nombre).drop();
-    print("  [RECREADA] " + nombre);
+  const info = db.getCollectionInfos({ name: nombre }).filter(function (x) {
+    return x.name === nombre;
+  })[0];
+
+  if (info) {
+    const esVista = info.type === "view";
+    const previo = esVista && info.options && info.options.pipeline
+      ? JSON.stringify(info.options.pipeline) : "null";
+    const deseado = JSON.stringify(pipeline);
+    if (esVista && previo === deseado) {
+      print("  [EXISTE] " + nombre);
+      return;
+    }
+    try {
+      db.getCollection(nombre).drop();
+      print("  [RECREADA] " + nombre + (esVista ? " (pipeline distinto)" : " (habia una coleccion con ese nombre)"));
+    } catch (e) {
+      print("  [ERROR drop] " + nombre + ": " + e.message);
+      return;
+    }
   }
-  db.createView(nombre, fuente, pipeline);
-  print("  [OK] " + nombre + " -> " + proposito);
+
+  try {
+    db.createView(nombre, fuente, pipeline);
+    print("  [OK] " + nombre + " -> " + proposito);
+  } catch (e) {
+    print("  [ERROR createView] " + nombre + ": " + e.message);
+  }
 }
 
 print("== Apartado E: definiendo 5 vistas ==");

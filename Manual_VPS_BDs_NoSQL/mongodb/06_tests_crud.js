@@ -10,7 +10,7 @@
 
 db = db.getSiblingDB("ecommerce_nosql");
 
-const DB = "ecommerce_nosql";
+const DB_TESTS = "ecommerce_nosql";
 const IP_PRUEBA = "127.0.0.1 (mongosh)";
 let PASS = 0, FAIL = 0;
 
@@ -21,10 +21,10 @@ function conectarComo(usuario, password) {
   const host = process.env.MONGO_HOST || "127.0.0.1:27017";
   const uri = "mongodb://" + encodeURIComponent(usuario) + ":" +
               encodeURIComponent(password) + "@" + host + "/" +
-              DB + "?authSource=" + DB;
+              DB_TESTS + "?authSource=" + DB_TESTS;
   try {
     const cliente = new Mongo(uri);
-    return cliente.getDB(DB);
+    return cliente.getDB(DB_TESTS);
   } catch (e) {
     print("  [AUTH-CONNECT-ERROR] " + usuario + ": " + e.message);
     return null;
@@ -93,7 +93,7 @@ function verificar(nombre, condicion, detalle) {
   else { FAIL++; print("  [FAIL] " + nombre + " :: " + (detalle || "")); }
 }
 
-function intentarDenegado(nombre, usuario, rol, fn) {
+function intentarDenegado(nombre, usuario, rol, fn, limpieza) {
   const sufijo = rol.toUpperCase().replace("-", "_");
   const password = pwd("MONGO_USR_" + sufijo + "_PASSWORD", "CAMBIAR_CLAVE_" + sufijo);
   let denegado = false;
@@ -126,8 +126,15 @@ function intentarDenegado(nombre, usuario, rol, fn) {
     }
   }
 
-  // La evidencia se escribe con la conexion root (o la sesion initdb).
+  // Limpieza de cualquier documento que la prueba haya podido dejar (modo
+  // initdb sin auth). Se ejecuta SIEMPRE y con la sesion root para no depender
+  // de los permisos del rol bajo prueba.
   authRoot();
+  if (limpieza) {
+    try { limpieza(db); } catch (e) { print("  [LIMPIEZA] " + e.message); }
+  }
+
+  // La evidencia se escribe con la conexion root (o la sesion initdb).
   registrar("AUTH_DENIED", usuario, rol, "seguridad", nombre,
     denegado ? ("Acceso rechazado: " + mensaje.substring(0, 180)) :
                (authActiva ? ("Error inesperado: " + mensaje.substring(0, 180)) :
@@ -159,6 +166,22 @@ authRoot();
 print("  Modo detectado: " + (authActiva ? "AUTENTICACION ACTIVA" : "INITDB (sin autenticacion)"));
 if (!authActiva) {
   print("  [NOTA] Las denegaciones reales se validan al repetir este script contra el VPS ya arrancado.");
+}
+
+// Limpieza previa de documentos temporales de una ejecucion anterior.
+// col_logs NO se toca: es evidencia real y debe crecer con cada prueba.
+authRoot();
+try {
+  const borradasRev = db.col_products_reviews.deleteMany({ titulo: "PRUEBA_CRUD_TEMP" }).deletedCount;
+  const borradasDir = db.col_users_adress.deleteMany({ nombre_completo: "JEIG (prueba buyer)" }).deletedCount;
+  const borradasDen = db.col_products_reviews.deleteMany({
+    id_product: NumberInt(999999), comentario: /debe ser denegado/
+  }).deletedCount;
+  if (borradasRev || borradasDir || borradasDen) {
+    print("  [LIMPIEZA] resenas=" + borradasRev + " direcciones=" + borradasDir + " intentos=" + borradasDen);
+  }
+} catch (e) {
+  print("  [LIMPIEZA-NO-DISPONIBLE] " + e.message);
 }
 
 // --------------------------------------------------------------------------
@@ -269,6 +292,7 @@ try {
     "exitoso", null, doc);
   verificar("buyer puede crear direccion y leer vista publica", true);
   db.col_users_adress.deleteOne({ _id: idCreado });
+  db.col_users_adress.deleteMany({ nombre_completo: "JEIG (prueba buyer)" });
   registrar("DELETE", "usr_admin", "admin", "col_users_adress", idCreado,
     "Limpieza del documento temporal creado por buyer", "exitoso", doc, null);
 } catch (e) {
@@ -290,14 +314,24 @@ intentarDenegado("common_no_puede_insertar_resenas", "usr_common", "common", fun
     rating: NumberInt(5), comentario: "Intento que debe ser denegado por el rol common",
     estado_moderacion: "aprobado", fecha: new Date(), activo: true
   });
+}, function (bd) {
+  // En initdb (sin auth) el insert SI ocurre: se elimina el residuo para que
+  // una segunda ejecucion no acumule documentos falsos.
+  bd.col_products_reviews.deleteMany({
+    id_product: NumberInt(999999), comentario: /debe ser denegado/
+  });
 });
 // Los filtros usan IDs inexistentes para que, en modo initdb (sin auth), la
 // prueba NO borre documentos reales de las colecciones sembradas.
 intentarDenegado("buyer_no_puede_borrar_envios", "usr_buyer", "buyer", function (bd) {
   bd.col_shipment_tracking.deleteOne({ id_order: NumberInt(999999) });
+}, function (bd) {
+  bd.col_shipment_tracking.deleteMany({ id_order: NumberInt(999999) });
 });
 intentarDenegado("seller_no_puede_borrar_logs", "usr_seller", "seller", function (bd) {
   bd.col_logs.deleteMany({ operacion: "__PRUEBA_DENEGACION__" });
+}, function (bd) {
+  bd.col_logs.deleteMany({ operacion: "__PRUEBA_DENEGACION__", estado: "exitoso" });
 });
 authRoot();
 

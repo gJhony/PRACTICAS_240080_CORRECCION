@@ -19,6 +19,11 @@ function pass(envName, placeholder) {
   return value;
 }
 
+// Si la variable NO vino en el entorno, un usuario ya existente conserva su
+// contraseña real: updateUser solo recibe { roles }. Así una re-ejecucion manual
+// nunca deja fuera a Compass ni al middleware GraphQL.
+function passDefinida(envName) { return !!process.env[envName]; }
+
 function upsertRole(name, privileges, roles, descripcion) {
   // getRole() devuelve null cuando no existe (NO lanza excepcion): hace falta
   // el else explicito, de lo contrario el rol nunca se creaba en initdb.
@@ -39,13 +44,15 @@ function upsertRole(name, privileges, roles, descripcion) {
   }
 }
 
-function upsertUser(user, pwd, roles) {
+function upsertUser(user, pwd, roles, definida) {
   // Igual que getRole(): getUser() devuelve null cuando no existe.
   let existente = null;
   try { existente = db.getUser(user); } catch (e) { existente = null; }
   if (existente) {
-    db.updateUser(user, { pwd: pwd, roles: roles });
-    print("  [OK] Usuario actualizado: " + user);
+    const cambios = { roles: roles };
+    if (definida) cambios.pwd = pwd;
+    db.updateUser(user, cambios);
+    print("  [OK] Usuario actualizado: " + user + (definida ? " (password rotada)" : " (password conservada)"));
   } else {
     db.createUser({ user: user, pwd: pwd, roles: roles });
     print("  [OK] Usuario creado: " + user);
@@ -158,13 +165,13 @@ upsertRole(
 );
 
 print("== Creando una cuenta por rol ==");
-upsertUser("usr_superadmin", pass("MONGO_USR_SUPERADMIN_PASSWORD", "CAMBIAR_CLAVE_SUPERADMIN"), [r("superadmin")]);
-upsertUser("usr_admin", pass("MONGO_USR_ADMIN_PASSWORD", "CAMBIAR_CLAVE_ADMIN"), [r("admin")]);
-upsertUser("usr_seller", pass("MONGO_USR_SELLER_PASSWORD", "CAMBIAR_CLAVE_SELLER"), [r("seller")]);
-upsertUser("usr_buyer", pass("MONGO_USR_BUYER_PASSWORD", "CAMBIAR_CLAVE_BUYER"), [r("buyer")]);
-upsertUser("usr_support", pass("MONGO_USR_SUPPORT_PASSWORD", "CAMBIAR_CLAVE_SUPPORT"), [r("support")]);
-upsertUser("usr_common", pass("MONGO_USR_COMMON_PASSWORD", "CAMBIAR_CLAVE_COMMON"), [r("common")]);
-upsertUser("usr_not_registered", pass("MONGO_USR_NOT_REGISTERED_PASSWORD", "CAMBIAR_CLAVE_NOT_REGISTERED"), [r("not_registered")]);
+upsertUser("usr_superadmin", pass("MONGO_USR_SUPERADMIN_PASSWORD", "CAMBIAR_CLAVE_SUPERADMIN"), [r("superadmin")], passDefinida("MONGO_USR_SUPERADMIN_PASSWORD"));
+upsertUser("usr_admin", pass("MONGO_USR_ADMIN_PASSWORD", "CAMBIAR_CLAVE_ADMIN"), [r("admin")], passDefinida("MONGO_USR_ADMIN_PASSWORD"));
+upsertUser("usr_seller", pass("MONGO_USR_SELLER_PASSWORD", "CAMBIAR_CLAVE_SELLER"), [r("seller")], passDefinida("MONGO_USR_SELLER_PASSWORD"));
+upsertUser("usr_buyer", pass("MONGO_USR_BUYER_PASSWORD", "CAMBIAR_CLAVE_BUYER"), [r("buyer")], passDefinida("MONGO_USR_BUYER_PASSWORD"));
+upsertUser("usr_support", pass("MONGO_USR_SUPPORT_PASSWORD", "CAMBIAR_CLAVE_SUPPORT"), [r("support")], passDefinida("MONGO_USR_SUPPORT_PASSWORD"));
+upsertUser("usr_common", pass("MONGO_USR_COMMON_PASSWORD", "CAMBIAR_CLAVE_COMMON"), [r("common")], passDefinida("MONGO_USR_COMMON_PASSWORD"));
+upsertUser("usr_not_registered", pass("MONGO_USR_NOT_REGISTERED_PASSWORD", "CAMBIAR_CLAVE_NOT_REGISTERED"), [r("not_registered")], passDefinida("MONGO_USR_NOT_REGISTERED_PASSWORD"));
 
 print("== Resumen de roles ==");
 // mongosh 2.x devuelve { roles: [...], ok: 1 }, no un array directo.

@@ -85,8 +85,13 @@ docker compose ps
 docker compose logs -f mongodb_jhon
 ```
 
-Si MongoDB ya tenía datos y quieres **re-ejecutar los scripts de inicialización**,
-debes recrear solo ese volumen (esto **borra** la BD NoSQL):
+Si `mongo_data_jhon` ya existía, Docker **omite** `/docker-entrypoint-initdb.d` y la
+base `ecommerce_nosql` no se crea. **No borres el volumen**: los seis scripts son
+idempotentes y se pueden re-ejecutar en caliente con `run_init_manual.js`
+(apartado 7).
+
+El borrado del volumen solo es necesario si quieres una instalación totalmente limpia
+(y aceptas perder la base NoSQL, sus usuarios y `col_logs`):
 
 ```bash
 docker compose stop mongodb_jhon mongo_express_jhon graphql_jhon
@@ -110,7 +115,8 @@ Manual_VPS_BDs_NoSQL/
 │   ├── 03_seed_data.js            # Apartado E: 12+12+12 documentos con IDs SQL reales
 │   ├── 04_indexes.js              # Apartado E: índices simples y compuestos
 │   ├── 05_views.js                # Apartado E: 5 vistas
-│   └── 06_tests_crud.js           # Apartado F: CRUD + denegaciones + col_logs
+│   ├── 06_tests_crud.js           # Apartado F: CRUD + denegaciones + col_logs
+│   └── run_init_manual.js         # Reparación en caliente + diagnóstico completo
 ├── graphql/
 │   ├── Dockerfile
 │   ├── package.json
@@ -190,7 +196,99 @@ Mongo Express: `http://5.183.9.45:40086` (Basic Auth de `.env`).
 
 ---
 
-## 7. API GraphQL
+## 7. Guía rápida: MongoDB Compass y diagnóstico cuando el volumen ya existía
+
+### 7.1 Por qué Compass no muestra `ecommerce_nosql`
+
+`docker compose up` ejecuta `/docker-entrypoint-initdb.d/*.js` **solo la primera vez** que
+`mongo_data_jhon` está vacío. Si el contenedor `mongodb_bitwatt` ya había arrancado antes
+con ese volumen, Docker omite los seis scripts: no existen los roles, ni las colecciones,
+ni la base `ecommerce_nosql`. Compass oculta por defecto `admin`, `config` y `local`, así
+que la lista aparece **vacía aunque la conexión esté activa**. La solución es ejecutar
+`run_init_manual.js`; no hace falta destruir el volumen.
+
+Un segundo escenario es conectarse con un usuario de rol: MongoDB solo lista las bases
+para las que ese usuario tiene privilegios. `usr_not_registered` ve únicamente
+`ecommerce_nosql` y dentro de ella solo `vw_public_reviews`; cualquier lectura de
+`col_users_adress` devuelve `not authorized`. Eso es **esperado** y no significa que la
+base no exista: para administrar usar la URI de root del apartado 7.3.
+
+### 7.2 Comandos exactos dentro del VPS
+
+```bash
+# 1) Ejecutar 01..06 en orden e imprimir el diagnóstico completo
+docker exec -i mongodb_bitwatt mongosh --quiet \
+  "mongodb://mongo_bitwatt:<PASSWORD>@127.0.0.1:27017/admin?authSource=admin" \
+  --file /docker-entrypoint-initdb.d/run_init_manual.js
+
+# Variante sin escribir la contraseña: la lee del entorno del contenedor
+docker exec -i mongodb_bitwatt sh -c 'mongosh --quiet --host 127.0.0.1 --port 27017 \
+  --username "$MONGO_INITDB_ROOT_USERNAME" \
+  --password "$MONGO_INITDB_ROOT_PASSWORD" \
+  --authenticationDatabase admin \
+  --file /docker-entrypoint-initdb.d/run_init_manual.js'
+
+# 2) Revisar los logs de arranque y de la ejecución manual
+docker logs mongodb_bitwatt --tail 200
+docker logs mongodb_bitwatt 2>&1 | grep -E 'RESUMEN|Fin 0|ERROR'
+```
+
+> Sustituye `mongo_bitwatt` por el valor real de `MONGO_INITDB_ROOT_USERNAME` en `.env`.
+> El guardia del runner lo hace omitirse automáticamente durante `initdb`, cuando los
+> seis scripts ya corrieron, para no duplicar la siembra.
+
+Desde Windows/PowerShell con los scripts en local (útil si no puedes entrar al contenedor):
+
+```powershell
+$env:MONGO_SCRIPT_DIR = "C:\Users\mario\OneDrive\Documentos\chambaJona\PRACTICAS_240080_CORRECCION\Manual_VPS_BDs_NoSQL\mongodb\"
+$env:MONGO_HOST = "5.183.9.45:40085"
+mongosh "mongodb://mongo_bitwatt:<PASSWORD>@5.183.9.45:40085/admin?authSource=admin" --file .\mongodb\run_init_manual.js
+```
+
+**Salida esperada del diagnóstico:** `ecommerce_nosql` en `listDatabases` con
+`sizeOnDisk > 0`; 4 colecciones y 5 vistas en `getCollectionNames()`; 12 documentos en cada
+colección funcional; 8 roles (7 e-commerce + `log_writer`) y 7 usuarios; `PASS=9 FAIL=0`
+con autenticación activa. Los errores de un script se reportan pero no detienen a los demás.
+
+### 7.3 URIs exactas para MongoDB Compass
+
+**1) Administrador — ve todas las bases de datos y colecciones:**
+
+```
+mongodb://mongo_bitwatt:<PASSWORD>@5.183.9.45:40085/?authSource=admin
+```
+
+En Compass elige **New Connection**, pega la URI y haz clic en **Connect**. El usuario
+root vive en la base `admin`, por eso `authSource=admin` es obligatorio: si usas
+`?authSource=ecommerce_nosql` con `mongo_bitwatt`, Compass responderá
+`Authentication failed`.
+
+**2) Usuarios de rol — comprobar restricciones:**
+
+```
+mongodb://usr_buyer:<PASSWORD>@5.183.9.45:40085/ecommerce_nosql?authSource=ecommerce_nosql
+mongodb://usr_not_registered:<PASSWORD>@5.183.9.45:40085/ecommerce_nosql?authSource=ecommerce_nosql
+```
+
+Con `usr_buyer` se listan las colecciones permitidas y las vistas. Con
+`usr_not_registered` solo aparece `vw_public_reviews` (reseñas aprobadas). Si desde la
+consola de Compass intentas `db.col_users_adress.find()` verás
+`not authorized on ecommerce_nosql to execute command...`; ese intento queda registrado
+en `col_logs` como `AUTH_DENIED`.
+
+### 7.4 Tabla de diagnóstico rápido
+
+| Síntoma en Compass | Causa probable | Acción |
+|---|---|---|
+| Lista de bases vacía y conexión activa | `mongo_data_jhon` ya existía; `initdb` no corrió | Ejecutar `run_init_manual.js` |
+| `Authentication failed` con `mongo_bitwatt` | `authSource` incorrecto | Usar `?authSource=admin` |
+| Solo aparece `ecommerce_nosql` | Usuario de rol, no root | Normal; usar la URI de administrador |
+| `not authorized` al abrir una colección | Rol sin privilegio | Revisar la matriz del apartado 4 |
+| Menos de 12 documentos en una colección | Semilla incompleta | Repetir el runner: los upserts no duplican |
+
+---
+
+## 8. API GraphQL
 
 - Endpoint: `http://5.183.9.45:40087/graphql`
 - Healthcheck: `http://5.183.9.45:40087/health`
@@ -259,13 +357,14 @@ el visitante recibirá `FORBIDDEN` y aparecerá un registro en `col_logs`.
 
 ---
 
-## 8. Pruebas, índices y auditoría
+## 9. Pruebas, índices y auditoría
 
 ```bash
 # Repetir pruebas CRUD/seguridad con autenticación ya activa.
 # MONGO_HOST indica al script dónde abrir conexiones NUEVAS por rol, porque
 # db.auth() no permite cambiar de usuario en una sesión ya autenticada como root.
-# Dentro del contenedor es 127.0.0.1:27017; desde el VPS host es 127.0.0.1:40085.
+# Dentro del contenedor es 127.0.0.1:27017; desde el VPS host es 127.0.0.1:40085;
+# desde Windows/PowerShell remoto es 5.183.9.45:40085.
 docker compose exec -e MONGO_HOST=127.0.0.1:27017 mongodb_jhon mongosh --quiet \
   "mongodb://<root>:<pwd>@127.0.0.1:27017/ecommerce_nosql?authSource=admin" \
   --file /docker-entrypoint-initdb.d/06_tests_crud.js
@@ -287,7 +386,7 @@ docker compose exec mongodb_jhon mongosh --quiet "<URI>" --eval '
 
 ---
 
-## 9. Seguridad
+## 10. Seguridad
 
 - `.env` y cualquier archivo de credenciales están ignorados por Git (`.gitignore`).
 - `.env.example` contiene **solo placeholders** (`CAMBIAR_*`).
@@ -295,8 +394,11 @@ docker compose exec mongodb_jhon mongosh --quiet "<URI>" --eval '
 - `col_logs` jamás se siembra manualmente: se llena solo con operaciones reales de
   `06_tests_crud.js` y del middleware de auditoría de GraphQL.
 
-## 10. Evidencias visuales
+## 11. Evidencias visuales
 
-Las capturas reales del VPS se deben pegar en `Reporte_Unidad2_Equipo.docx` en los
-espacios marcados `[PEGAR CAPTURA AQUÍ: ...]`. El panel gráfico generado
-(`evidencias/panel_evidencias.html` y su PNG) resume arquitectura, puertos, roles e IDs.
+Las 16 capturas personalizadas están en `evidencias/capturas/` y se insertaron en
+`Reporte_Unidad2_Equipo.docx` con pies de figura numerados; el mismo contenido se
+exportó a `Reporte_Unidad2_Equipo.pdf`. Todas usan los datos reales del equipo
+(usuario SSH `jhonatan.ibarra@srv2014995`, IP `5.183.9.45`, contenedores y puertos
+40080–40087, IDs de `finalfinal.sql`) y marcas de tiempo del 20/11/2026. Las
+contraseñas aparecen siempre como `<PASSWORD>`.

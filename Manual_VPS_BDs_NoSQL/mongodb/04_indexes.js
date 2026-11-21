@@ -2,26 +2,83 @@
 // UTXJ - Unidad 2 - Apartado E (Indicador 40)
 // 04_indexes.js - Indices simples y compuestos justificados (sin redundantes)
 // =============================================================================
-// Cada indice indica la consulta que optimiza. Se crea solo si no existe.
+// Cada indice indica la consulta que optimiza. Es 100% re-ejecutable:
+//  - si el indice ya existe con la MISMA clave y opciones, no hace nada;
+//  - si existe con el mismo nombre pero otra definicion, se elimina y se recrea;
+//  - si la misma clave existe bajo OTRO nombre, se limpia para evitar el error
+//    "Index with name ... already exists with different options" de MongoDB.
+// Ningun error de indice aborta el script: se reporta y se continúa.
 // =============================================================================
 
 db = db.getSiblingDB("ecommerce_nosql");
 
+function esVerdadero(v) { return v === true || v === 1 || v === "true"; }
+
+// Compara la clave BSON en el ORDEN correcto: el orden de un indice compuesto
+// cambia el plan de ejecucion, por eso no basta con comparar llaves sueltas.
+function mismaClave(actual, deseada) {
+  const ka = Object.keys(actual);
+  const kd = Object.keys(deseada);
+  if (ka.length !== kd.length) return false;
+  for (let i = 0; i < kd.length; i++) {
+    if (ka[i] !== kd[i]) return false;
+    if (Number(actual[ka[i]]) !== Number(deseada[kd[i]])) return false;
+  }
+  return true;
+}
+
+function mismaDefinicion(ix, claves, opts) {
+  return mismaClave(ix.key, claves) &&
+         esVerdadero(ix.unique) === esVerdadero(opts.unique) &&
+         esVerdadero(ix.sparse) === esVerdadero(opts.sparse);
+}
+
 function crearIndice(coleccion, claves, nombre, opciones, justificacion) {
+  const col = db.getCollection(coleccion);
   const nombreFinal = nombre || Object.keys(claves).map(function (k) {
     return k + "_" + claves[k];
   }).join("_");
-  const existe = db.getCollection(coleccion).getIndexes().some(function (ix) {
+  const opts = Object.assign({}, opciones || {});
+  opts.name = nombreFinal;
+
+  const porNombre = col.getIndexes().filter(function (ix) {
     return ix.name === nombreFinal;
-  });
-  if (existe) {
+  })[0];
+
+  if (porNombre && mismaDefinicion(porNombre, claves, opts)) {
     print("  [EXISTE] " + coleccion + "." + nombreFinal);
     return;
   }
-  const opts = opciones || {};
-  opts.name = nombreFinal;
-  db.getCollection(coleccion).createIndex(claves, opts);
-  print("  [CREADO] " + coleccion + "." + nombreFinal + " -> " + justificacion);
+
+  if (porNombre) {
+    try {
+      col.dropIndex(nombreFinal);
+      print("  [RECREADO] " + coleccion + "." + nombreFinal + " (definicion previa distinta)");
+    } catch (e) {
+      print("  [ERROR dropIndex] " + coleccion + "." + nombreFinal + ": " + e.message);
+      return;
+    }
+  }
+
+  // MongoDB prohíbe dos indices con la misma clave aunque tengan otro nombre.
+  const porClave = col.getIndexes().filter(function (ix) {
+    return ix.name !== "_id_" && ix.name !== nombreFinal && mismaClave(ix.key, claves);
+  })[0];
+  if (porClave) {
+    try {
+      col.dropIndex(porClave.name);
+      print("  [LIMPIADO] " + coleccion + "." + porClave.name + " (misma clave con otro nombre)");
+    } catch (e) {
+      print("  [ERROR dropIndex] " + coleccion + "." + porClave.name + ": " + e.message);
+    }
+  }
+
+  try {
+    col.createIndex(claves, opts);
+    print("  [CREADO] " + coleccion + "." + nombreFinal + " -> " + justificacion);
+  } catch (e) {
+    print("  [ERROR createIndex] " + coleccion + "." + nombreFinal + ": " + e.message);
+  }
 }
 
 print("== Apartado E: creando indices justificados ==");
