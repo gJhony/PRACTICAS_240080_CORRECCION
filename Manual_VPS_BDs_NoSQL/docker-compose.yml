@@ -1,4 +1,51 @@
-mongodb_jhon:
+services:
+  postgres_jhon:
+    image: postgres:15-alpine
+    container_name: postgres_jhon
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-jhony40080}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-db_40080}
+    ports:
+      - "${PG_PORT:-40080}:5432"
+    volumes:
+      - postgres_data_jhon:/var/lib/postgresql/data
+    networks:
+      - stack_jhon_net
+
+  mysql_jhon:
+    image: mysql:8.0
+    container_name: mysql_jhon
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-db_test_7b}
+      MYSQL_USER: ${MYSQL_USER:-jhon_jojos}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT:-40081}:3306"
+    volumes:
+      - mysql_data_jhon:/var/lib/mysql
+    networks:
+      - stack_jhon_net
+
+  pgadmin_jhon:
+    image: dpage/pgadmin4:7.8
+    container_name: pgadmin_jhon
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-240080@utxicotepec.edu.mx}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_CONFIG_SERVER_MODE: "True"
+    ports:
+      - "${PGADMIN_PORT:-40082}:80"
+    depends_on:
+      - postgres_jhon
+    networks:
+      - stack_jhon_net
+
+  mongodb_jhon:
     image: mongo:7
     container_name: mongodb_bitwatt
     restart: always
@@ -49,3 +96,15 @@ mongodb_jhon:
       - mongodb_jhon
     networks:
       - stack_jhon_net
+
+volumes:
+  postgres_data_jhon:
+    driver: local
+  mysql_data_jhon:
+    driver: local
+  mongo_data_jhon:
+    driver: local
+
+networks:
+  stack_jhon_net:
+    driver: bridge
