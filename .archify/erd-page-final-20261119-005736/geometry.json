@@ -1,0 +1,446 @@
+{
+  "grid": {
+    "mode": "grid",
+    "origin": [
+      32,
+      40
+    ],
+    "gapX": 96,
+    "gapY": 30,
+    "entityW": 240,
+    "headerH": 30,
+    "rowH": 20
+  },
+  "columnGaps": [
+    [
+      0,
+      145
+    ],
+    [
+      1,
+      200
+    ]
+  ],
+  "columnX": [
+    [
+      0,
+      32
+    ],
+    [
+      1,
+      870
+    ],
+    [
+      2,
+      1463
+    ]
+  ],
+  "widths": [
+    [
+      1,
+      393
+    ],
+    [
+      0,
+      693
+    ],
+    [
+      2,
+      452
+    ]
+  ],
+  "rowY": [
+    [
+      0,
+      40
+    ],
+    [
+      1,
+      286
+    ],
+    [
+      2,
+      592
+    ],
+    [
+      3,
+      898
+    ],
+    [
+      4,
+      1144
+    ],
+    [
+      5,
+      1450
+    ],
+    [
+      6,
+      1656
+    ],
+    [
+      7,
+      1882
+    ],
+    [
+      8,
+      2168
+    ],
+    [
+      9,
+      2374
+    ],
+    [
+      10,
+      2560
+    ]
+  ],
+  "rowHeights": [
+    [
+      0,
+      216
+    ],
+    [
+      1,
+      276
+    ],
+    [
+      2,
+      276
+    ],
+    [
+      3,
+      216
+    ],
+    [
+      4,
+      276
+    ],
+    [
+      5,
+      176
+    ],
+    [
+      6,
+      196
+    ],
+    [
+      7,
+      256
+    ],
+    [
+      8,
+      176
+    ],
+    [
+      9,
+      156
+    ],
+    [
+      10,
+      176
+    ]
+  ],
+  "entities": [
+    {
+      "id": "tb_users",
+      "tag": "nucleo",
+      "row": 0,
+      "col": 1,
+      "x": 946.5,
+      "y": 40,
+      "w": 240,
+      "h": 216,
+      "right": 1186.5,
+      "bottom": 256
+    },
+    {
+      "id": "tb_people",
+      "tag": "nucleo",
+      "row": 1,
+      "col": 1,
+      "x": 870,
+      "y": 286,
+      "w": 393,
+      "h": 276,
+      "right": 1263,
+      "bottom": 562
+    },
+    {
+      "id": "tb_user_addresses",
+      "tag": "nucleo",
+      "row": 2,
+      "col": 1,
+      "x": 899,
+      "y": 592,
+      "w": 335,
+      "h": 276,
+      "right": 1234,
+      "bottom": 868
+    },
+    {
+      "id": "tb_categories",
+      "tag": "nucleo",
+      "row": 3,
+      "col": 1,
+      "x": 919,
+      "y": 898,
+      "w": 295,
+      "h": 176,
+      "right": 1214,
+      "bottom": 1074
+    },
+    {
+      "id": "tb_products",
+      "tag": "nucleo",
+      "row": 4,
+      "col": 1,
+      "x": 946.5,
+      "y": 1144,
+      "w": 240,
+      "h": 276,
+      "right": 1186.5,
+      "bottom": 1420
+    },
+    {
+      "id": "tb_buyer_orders",
+      "tag": "operacion",
+      "row": 2,
+      "col": 0,
+      "x": 32,
+      "y": 592,
+      "w": 693,
+      "h": 196,
+      "right": 725,
+      "bottom": 788
+    },
+    {
+      "id": "tb_carts",
+      "tag": "operacion",
+      "row": 4,
+      "col": 0,
+      "x": 258.5,
+      "y": 1144,
+      "w": 240,
+      "h": 136,
+      "right": 498.5,
+      "bottom": 1280
+    },
+    {
+      "id": "tb_payments",
+      "tag": "operacion",
+      "row": 5,
+      "col": 0,
+      "x": 150.5,
+      "y": 1450,
+      "w": 456,
+      "h": 176,
+      "right": 606.5,
+      "bottom": 1626
+    },
+    {
+      "id": "tb_payment_methods",
+      "tag": "operacion",
+      "row": 6,
+      "col": 0,
+      "x": 234,
+      "y": 1656,
+      "w": 289,
+      "h": 196,
+      "right": 523,
+      "bottom": 1852
+    },
+    {
+      "id": "tb_payment_transactions",
+      "tag": "operacion",
+      "row": 7,
+      "col": 0,
+      "x": 230,
+      "y": 1882,
+      "w": 297,
+      "h": 176,
+      "right": 527,
+      "bottom": 2058
+    },
+    {
+      "id": "tb_order_cancellations",
+      "tag": "operacion",
+      "row": 8,
+      "col": 0,
+      "x": 258.5,
+      "y": 2168,
+      "w": 240,
+      "h": 176,
+      "right": 498.5,
+      "bottom": 2344
+    },
+    {
+      "id": "tb_order_returns",
+      "tag": "operacion",
+      "row": 9,
+      "col": 0,
+      "x": 138,
+      "y": 2374,
+      "w": 481,
+      "h": 156,
+      "right": 619,
+      "bottom": 2530
+    },
+    {
+      "id": "tb_shipments",
+      "tag": "operacion",
+      "row": 3,
+      "col": 0,
+      "x": 106.5,
+      "y": 898,
+      "w": 544,
+      "h": 216,
+      "right": 650.5,
+      "bottom": 1114
+    },
+    {
+      "id": "tb_logs",
+      "tag": "operacion",
+      "row": 10,
+      "col": 0,
+      "x": 146,
+      "y": 2560,
+      "w": 465,
+      "h": 176,
+      "right": 611,
+      "bottom": 2736
+    },
+    {
+      "id": "tbd_address_components",
+      "tag": "detalles",
+      "row": 0,
+      "col": 2,
+      "x": 1535.5,
+      "y": 40,
+      "w": 307,
+      "h": 196,
+      "right": 1842.5,
+      "bottom": 236
+    },
+    {
+      "id": "tbd_cancellation_items",
+      "tag": "detalles",
+      "row": 1,
+      "col": 2,
+      "x": 1569,
+      "y": 286,
+      "w": 240,
+      "h": 196,
+      "right": 1809,
+      "bottom": 482
+    },
+    {
+      "id": "tbd_carts_items",
+      "tag": "detalles",
+      "row": 2,
+      "col": 2,
+      "x": 1569,
+      "y": 592,
+      "w": 240,
+      "h": 136,
+      "right": 1809,
+      "bottom": 728
+    },
+    {
+      "id": "tbd_order_items",
+      "tag": "detalles",
+      "row": 3,
+      "col": 2,
+      "x": 1561.5,
+      "y": 898,
+      "w": 255,
+      "h": 216,
+      "right": 1816.5,
+      "bottom": 1114
+    },
+    {
+      "id": "tbd_products_categories",
+      "tag": "detalles",
+      "row": 4,
+      "col": 2,
+      "x": 1569,
+      "y": 1144,
+      "w": 240,
+      "h": 136,
+      "right": 1809,
+      "bottom": 1280
+    },
+    {
+      "id": "tbd_products_users_providers",
+      "tag": "detalles",
+      "row": 5,
+      "col": 2,
+      "x": 1463,
+      "y": 1450,
+      "w": 452,
+      "h": 176,
+      "right": 1915,
+      "bottom": 1626
+    },
+    {
+      "id": "tbd_return_items",
+      "tag": "detalles",
+      "row": 6,
+      "col": 2,
+      "x": 1569,
+      "y": 1656,
+      "w": 240,
+      "h": 136,
+      "right": 1809,
+      "bottom": 1792
+    },
+    {
+      "id": "tbd_user_payment_methods",
+      "tag": "detalles",
+      "row": 7,
+      "col": 2,
+      "x": 1531,
+      "y": 1882,
+      "w": 316,
+      "h": 256,
+      "right": 1847,
+      "bottom": 2138
+    },
+    {
+      "id": "tbd_users_wishlist_products",
+      "tag": "detalles",
+      "row": 8,
+      "col": 2,
+      "x": 1569,
+      "y": 2168,
+      "w": 240,
+      "h": 136,
+      "right": 1809,
+      "bottom": 2304
+    },
+    {
+      "id": "tbc_payment_methods_types",
+      "tag": "catalogos",
+      "row": 0,
+      "col": 0,
+      "x": 258.5,
+      "y": 40,
+      "w": 240,
+      "h": 156,
+      "right": 498.5,
+      "bottom": 196
+    },
+    {
+      "id": "tbc_shipping_carriers",
+      "tag": "catalogos",
+      "row": 1,
+      "col": 0,
+      "x": 211,
+      "y": 286,
+      "w": 335,
+      "h": 136,
+      "right": 546,
+      "bottom": 422
+    }
+  ]
+}

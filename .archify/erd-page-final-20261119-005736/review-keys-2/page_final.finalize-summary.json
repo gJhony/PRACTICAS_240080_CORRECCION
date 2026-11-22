@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "erd",
+  "quality": "standard",
+  "specification": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+    "sha256": "8eef1d473993c00bc7cd1a67d2e30918c24285a587001764a38f2a26ff450e9d",
+    "bytes": 38118
+  },
+  "artifact": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+    "sha256": "0b7a3ccb840056c4a9c26ac916cd0581be979c2e281a27373a9f996027fa8042",
+    "bytes": 983814
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-keys-2\\page_final.finalize.json",
+    "summaryReceipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-keys-2\\page_final.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-keys-2\\page_final.browser-check.json"
+  },
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+    "severity": "normal",
+    "checkedAt": "2026-11-19T06:58:18.427Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.1.0 → 3.2.0. A previous check at 2026-11-19T06:58:18.427Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 29258,
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 15,
+      "routesOverSuggestedStretch": 5
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "fk_tb_order_cancellations_0",
+            "from": "tb_order_cancellations",
+            "to": "tb_users",
+            "label": "id_user",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "bends": 3,
+          "stretch": 1.182
+        },
+        {
+          "relationship": {
+            "id": "fk_tb_order_returns_0",
+            "from": "tb_order_returns",
+            "to": "tb_buyer_orders",
+            "label": "id_buyer_order",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "bends": 4,
+          "stretch": 1.312,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_carts",
+              "label": "tb_carts",
+              "box": [
+                246.5,
+                1144,
+                264,
+                136
+              ]
+            },
+            {
+              "id": "tb_payments",
+              "label": "tb_payments",
+              "box": [
+                150.5,
+                1450,
+                456,
+                176
+              ]
+            },
+            {
+              "id": "tb_payment_methods",
+              "label": "tb_payment_methods",
+              "box": [
+                234,
+                1656,
+                289,
+                196
+              ]
+            },
+            {
+              "id": "tb_payment_transactions",
+              "label": "tb_payment_transactions",
+              "box": [
+                230,
+                1882,
+                297,
+                176
+              ]
+            },
+            {
+              "id": "tb_order_cancellations",
+              "label": "tb_order_cancellations",
+              "box": [
+                258.5,
+                2168,
+                240,
+                176
+              ]
+            },
+            {
+              "id": "tb_shipments",
+              "label": "tb_shipments",
+              "box": [
+                106.5,
+                898,
+                544,
+                216
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "fk_tb_payment_methods_0",
+            "from": "tb_payment_methods",
+            "to": "tbc_payment_methods_types",
+            "label": "id_payment_method_type",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 3,
+          "stretch": 1.241,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_buyer_orders",
+              "label": "tb_buyer_orders",
+              "box": [
+                32,
+                592,
+                693,
+                196
+              ]
+            },
+            {
+              "id": "tb_carts",
+              "label": "tb_carts",
+              "box": [
+                246.5,
+                1144,
+                264,
+                136
+              ]
+            },
+            {
+              "id": "tb_payments",
+              "label": "tb_payments",
+              "box": [
+                150.5,
+                1450,
+                456,
+                176
+              ]
+            },
+            {
+              "id": "tb_shipments",
+              "label": "tb_shipments",
+              "box": [
+                106.5,
+                898,
+                544,
+                216
+              ]
+            },
+            {
+              "id": "tbc_shipping_carriers",
+              "label": "tbc_shipping_carriers",
+              "box": [
+                211,
+                286,
+                335,
+                136
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "fk_tb_payments_0",
+            "from": "tb_payments",
+            "to": "tb_buyer_orders",
+            "label": "id_buyer_order",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "bends": 4,
+          "stretch": 1.861,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_carts",
+              "label": "tb_carts",
+              "box": [
+                246.5,
+                1144,
+                264,
+                136
+              ]
+            },
+            {
+              "id": "tb_shipments",
+              "label": "tb_shipments",
+              "box": [
+                106.5,
+                898,
+                544,
+                216
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "fk_tb_shipments_1",
+            "from": "tb_shipments",
+            "to": "tbc_shipping_carriers",
+            "label": "id_carrier",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "bends": 4,
+          "stretch": 2.424,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_buyer_orders",
+              "label": "tb_buyer_orders",
+              "box": [
+                32,
+                592,
+                693,
+                196
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "fk_tb_user_addresses_0",
+            "from": "tb_user_addresses",
+            "to": "tb_users",
+            "label": "id_user",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "bends": 4,
+          "stretch": 2.135,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_people",
+              "label": "tb_people",
+              "box": [
+                895,
+                286,
+                413,
+                276
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "fk_tbd_cancellation_items_0",
+            "from": "tbd_cancellation_items",
+            "to": "tb_order_cancellations",
+            "label": "id_order_cancellation",
+            "collectionIndex": 16,
+            "artifactIndex": 17
+          },
+          "bends": 3,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "fk_tbd_carts_items_0",
+            "from": "tbd_carts_items",
+            "to": "tb_carts",
+            "label": "id_cart",
+            "collectionIndex": 18,
+            "artifactIndex": 19
+          },
+          "bends": 4,
+          "stretch": 1
+        }
+      ],
+      "truncated": true
+    },
+    "repair": "Advisory only: this mode places or routes these relationships itself. Report them; do not remove relationships or meaning to reduce crossings."
+  }
+}

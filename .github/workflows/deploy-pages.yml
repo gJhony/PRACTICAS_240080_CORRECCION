@@ -1,0 +1,37 @@
+name: Publicar Practicas03 en GitHub Pages
+
+on:
+  push:
+    branches: [Practica03]
+    paths:
+      - 'Practicas03/docs/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener el repositorio
+        uses: actions/checkout@v4
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Preparar archivos de Practicas03
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: Practicas03/docs
+      - name: Publicar sitio
+        id: deployment
+        uses: actions/deploy-pages@v4

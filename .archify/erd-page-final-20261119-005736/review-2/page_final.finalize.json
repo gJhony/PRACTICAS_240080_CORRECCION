@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "erd",
+  "quality": "standard",
+  "startedAt": "2026-11-19T06:59:41.777Z",
+  "specification": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+    "sha256": "91f1e14c5967db38263f92d3d8e4efa8ef176a371327ccdde16839c0f6d0fa8b",
+    "bytes": 33671
+  },
+  "artifact": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html"
+  },
+  "stages": {
+    "validate": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": null,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\jeig2\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "erd",
+        "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+        "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+        "--quality",
+        "standard",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "deliver",
+        "receiptId": "b6198972-e0d7-4765-99d3-a8383d8ad0bc",
+        "stage": "render",
+        "type": "erd",
+        "input": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+        "output": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+        "error": "Entity-relationship layout validation failed:\n- [clean-flow/edge-through-node] erd relationships[2] id \"fk_tb_order_cancellations_0\" \"tb_order_cancellations\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [723, 2244] -> [723, 172] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_people\" (unrelated to this relationship) on segment 0 [1569, 384] -> [1034, 384] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_user_addresses\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_categories\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_products\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_users\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_people\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_user_addresses\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_categories\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.\n- [clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_products\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+        "diagnostics": [
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[2] id \"fk_tb_order_cancellations_0\" \"tb_order_cancellations\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [723, 2244] -> [723, 172] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 2,
+              "id": "fk_tb_order_cancellations_0",
+              "from": "tb_order_cancellations",
+              "to": "tb_users"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_buyer_orders",
+              "segmentIndex": 1,
+              "from": [
+                722.5,
+                2244
+              ],
+              "to": [
+                722.5,
+                172
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_people\" (unrelated to this relationship) on segment 0 [1569, 384] -> [1034, 384] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 16,
+              "id": "fk_tbd_cancellation_items_0",
+              "from": "tbd_cancellation_items",
+              "to": "tb_order_cancellations"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_people",
+              "segmentIndex": 0,
+              "from": [
+                1569,
+                384
+              ],
+              "to": [
+                1033.75,
+                384
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_user_addresses\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 16,
+              "id": "fk_tbd_cancellation_items_0",
+              "from": "tbd_cancellation_items",
+              "to": "tb_order_cancellations"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_user_addresses",
+              "segmentIndex": 1,
+              "from": [
+                1033.75,
+                384
+              ],
+              "to": [
+                1033.75,
+                2268
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_categories\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 16,
+              "id": "fk_tbd_cancellation_items_0",
+              "from": "tbd_cancellation_items",
+              "to": "tb_order_cancellations"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_categories",
+              "segmentIndex": 1,
+              "from": [
+                1033.75,
+                384
+              ],
+              "to": [
+                1033.75,
+                2268
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_products\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 16,
+              "id": "fk_tbd_cancellation_items_0",
+              "from": "tbd_cancellation_items",
+              "to": "tb_order_cancellations"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_products",
+              "segmentIndex": 1,
+              "from": [
+                1033.75,
+                384
+              ],
+              "to": [
+                1033.75,
+                2268
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_users\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 30,
+              "id": "fk_tbd_user_payment_methods_1",
+              "from": "tbd_user_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_users",
+              "segmentIndex": 1,
+              "from": [
+                1014.75,
+                1986
+              ],
+              "to": [
+                1014.75,
+                118
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_people\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 30,
+              "id": "fk_tbd_user_payment_methods_1",
+              "from": "tbd_user_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_people",
+              "segmentIndex": 1,
+              "from": [
+                1014.75,
+                1986
+              ],
+              "to": [
+                1014.75,
+                118
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_user_addresses\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 30,
+              "id": "fk_tbd_user_payment_methods_1",
+              "from": "tbd_user_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_user_addresses",
+              "segmentIndex": 1,
+              "from": [
+                1014.75,
+                1986
+              ],
+              "to": [
+                1014.75,
+                118
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_categories\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 30,
+              "id": "fk_tbd_user_payment_methods_1",
+              "from": "tbd_user_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_categories",
+              "segmentIndex": 1,
+              "from": [
+                1014.75,
+                1986
+              ],
+              "to": [
+                1014.75,
+                118
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          },
+          {
+            "code": "clean-flow/edge-through-node",
+            "severity": "error",
+            "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_products\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+            "subject": {
+              "diagramType": "erd",
+              "collection": "relationships",
+              "index": 30,
+              "id": "fk_tbd_user_payment_methods_1",
+              "from": "tbd_user_payment_methods",
+              "to": "tbc_payment_methods_types"
+            },
+            "evidence": {
+              "obstacleKind": "entity",
+              "obstacleId": "tb_products",
+              "segmentIndex": 1,
+              "from": [
+                1014.75,
+                1986
+              ],
+              "to": [
+                1014.75,
+                118
+              ],
+              "clearancePx": 2
+            },
+            "supportedFixes": [
+              "adjust fromSide/toSide, set route/via, or move the entity"
+            ]
+          }
+        ],
+        "provenance": "absent",
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      },
+      "execution": "embedded-in-deliver"
+    },
+    "deliver": {
+      "status": "not-run",
+      "execution": "blocked-by-validate"
+    }
+  },
+  "diagnostics": [
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[2] id \"fk_tb_order_cancellations_0\" \"tb_order_cancellations\" -> \"tb_users\" crosses entity \"tb_buyer_orders\" (unrelated to this relationship) on segment 1 [723, 2244] -> [723, 172] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 2,
+        "id": "fk_tb_order_cancellations_0",
+        "from": "tb_order_cancellations",
+        "to": "tb_users"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_buyer_orders",
+        "segmentIndex": 1,
+        "from": [
+          722.5,
+          2244
+        ],
+        "to": [
+          722.5,
+          172
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_people\" (unrelated to this relationship) on segment 0 [1569, 384] -> [1034, 384] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 16,
+        "id": "fk_tbd_cancellation_items_0",
+        "from": "tbd_cancellation_items",
+        "to": "tb_order_cancellations"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_people",
+        "segmentIndex": 0,
+        "from": [
+          1569,
+          384
+        ],
+        "to": [
+          1033.75,
+          384
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_user_addresses\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 16,
+        "id": "fk_tbd_cancellation_items_0",
+        "from": "tbd_cancellation_items",
+        "to": "tb_order_cancellations"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_user_addresses",
+        "segmentIndex": 1,
+        "from": [
+          1033.75,
+          384
+        ],
+        "to": [
+          1033.75,
+          2268
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_categories\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 16,
+        "id": "fk_tbd_cancellation_items_0",
+        "from": "tbd_cancellation_items",
+        "to": "tb_order_cancellations"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_categories",
+        "segmentIndex": 1,
+        "from": [
+          1033.75,
+          384
+        ],
+        "to": [
+          1033.75,
+          2268
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[16] id \"fk_tbd_cancellation_items_0\" \"tbd_cancellation_items\" -> \"tb_order_cancellations\" crosses entity \"tb_products\" (unrelated to this relationship) on segment 1 [1034, 384] -> [1034, 2268] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 16,
+        "id": "fk_tbd_cancellation_items_0",
+        "from": "tbd_cancellation_items",
+        "to": "tb_order_cancellations"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_products",
+        "segmentIndex": 1,
+        "from": [
+          1033.75,
+          384
+        ],
+        "to": [
+          1033.75,
+          2268
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_users\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_users",
+        "segmentIndex": 1,
+        "from": [
+          1014.75,
+          1986
+        ],
+        "to": [
+          1014.75,
+          118
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_people\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_people",
+        "segmentIndex": 1,
+        "from": [
+          1014.75,
+          1986
+        ],
+        "to": [
+          1014.75,
+          118
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_user_addresses\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_user_addresses",
+        "segmentIndex": 1,
+        "from": [
+          1014.75,
+          1986
+        ],
+        "to": [
+          1014.75,
+          118
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_categories\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_categories",
+        "segmentIndex": 1,
+        "from": [
+          1014.75,
+          1986
+        ],
+        "to": [
+          1014.75,
+          118
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    },
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tb_products\" (unrelated to this relationship) on segment 1 [1015, 1986] -> [1015, 118] (2px clearance) — adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tb_products",
+        "segmentIndex": 1,
+        "from": [
+          1014.75,
+          1986
+        ],
+        "to": [
+          1014.75,
+          118
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-2\\page_final.finalize.json",
+    "summaryReceipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-2\\page_final.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "validate",
+  "finishedAt": "2026-11-19T06:59:46.110Z",
+  "durationMs": 4333,
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+    "severity": "normal",
+    "checkedAt": "2026-11-19T06:58:18.427Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.1.0 → 3.2.0. A previous check at 2026-11-19T06:58:18.427Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+  }
+}

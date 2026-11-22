@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "erd",
+  "quality": "standard",
+  "specification": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+    "sha256": "facdbd4e1533c58dace64dc35e3c6eac1b19773926c2ebd44790e03e1daa7ba1",
+    "bytes": 38440
+  },
+  "artifact": {
+    "path": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+    "sha256": "098d856201d743a80e7e878f2c7359129ceaa17127dac9e344d1879d9f705cff",
+    "bytes": 987113
+  },
+  "gates": {
+    "validate": "fail",
+    "deliver": "not-run",
+    "check": "not-run",
+    "browser-check": "not-run"
+  },
+  "failedStage": "validate",
+  "diagnostics": [
+    {
+      "code": "clean-flow/edge-through-node",
+      "severity": "error",
+      "message": "[clean-flow/edge-through-node] erd relationships[30] id \"fk_tbd_user_payment_methods_1\" \"tbd_user_payment_methods\" -> \"tbc_payment_methods_types\" crosses entity \"tbd_products_users_providers\" (unrelated to this relationship) on segment 1 [1925, 2010] -> [1925, 16] (2px clearance) — if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity.",
+      "subject": {
+        "diagramType": "erd",
+        "collection": "relationships",
+        "index": 30,
+        "id": "fk_tbd_user_payment_methods_1",
+        "from": "tbd_user_payment_methods",
+        "to": "tbc_payment_methods_types"
+      },
+      "evidence": {
+        "obstacleKind": "entity",
+        "obstacleId": "tbd_products_users_providers",
+        "segmentIndex": 1,
+        "from": [
+          1925,
+          2010
+        ],
+        "to": [
+          1925,
+          16
+        ],
+        "clearancePx": 2
+      },
+      "supportedFixes": [
+        "if the authored via/fromSide/toSide are not required by the user, remove them so the renderer can re-plan; otherwise preserve that intent and adjust fromSide/toSide, set route/via, or move the entity"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-rows\\page_final.finalize.json",
+    "summaryReceipt": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\review-rows\\page_final.finalize-summary.json"
+  },
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0",
+    "severity": "normal",
+    "checkedAt": "2026-11-19T06:58:18.427Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.1.0 → 3.2.0. A previous check at 2026-11-19T06:58:18.427Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.2.0. The installed Skill has not changed; ask to snooze or ignore this reminder.",
+    "eventKey": "archify@sha256:70e210265c59f24dcbdf2a502ff671104b5454e7ee7d3554aecd86bad32384f5"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 4202,
+  "nextAction": {
+    "action": "edit-in-place",
+    "candidate": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+    "constraint": "Preserve unaffected semantics and geometry; apply each diagnostic's supportedFixes, or the fix its message names, and do not replace the whole candidate.",
+    "then": "finalize-once"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "4ed4f112-f247-4ff3-8eb9-daa39309cef4",
+  "status": "current",
+  "command": "deliver",
+  "type": "erd",
+  "input": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\.archify\\erd-page-final-20261119-005736\\candidate.json",
+  "output": "C:\\Users\\jeig2\\OneDrive\\Documentos\\correcionmarco\\PRACTICAS_240080_CORRECCION\\Practicas03\\docs\\page_final.html",
+  "specification": {
+    "sha256": "8eef1d473993c00bc7cd1a67d2e30918c24285a587001764a38f2a26ff450e9d",
+    "bytes": 38118
+  },
+  "artifact": {
+    "sha256": "0b7a3ccb840056c4a9c26ac916cd0581be979c2e281a27373a9f996027fa8042",
+    "bytes": 983814
+  }
+}
