@@ -75,20 +75,42 @@ GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tbd_products_categories` TO 'suppo
 -- 4. SELLER (Gestión de productos propios)
 GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_products` TO 'seller';
 
--- 5. BUYER (Compra y visualización de productos)
+-- 5. BUYER (Compra, pago, orden atendida y envío)
 GRANT SELECT ON `db_test_7b`.`tb_products` TO 'buyer';
+GRANT SELECT ON `db_test_7b`.`tb_users` TO 'buyer';
+GRANT SELECT ON `db_test_7b`.`tb_people` TO 'buyer';
 GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_carts` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `db_test_7b`.`tbd_carts_items` TO 'buyer';
 GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_buyer_orders` TO 'buyer';
+GRANT SELECT, INSERT ON `db_test_7b`.`tbd_order_items` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_user_addresses` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tbd_address_components` TO 'buyer';
+GRANT SELECT ON `db_test_7b`.`tbc_payment_methods_types` TO 'buyer';
+GRANT SELECT, INSERT ON `db_test_7b`.`tb_payment_methods` TO 'buyer';
+GRANT SELECT, INSERT ON `db_test_7b`.`tbd_user_payment_methods` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_payments` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_payment_transactions` TO 'buyer';
+GRANT SELECT ON `db_test_7b`.`tbc_shipping_carriers` TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON `db_test_7b`.`tb_shipments` TO 'buyer';
 
 -- 6. COMMON_USER (Usuario registrado general)
 GRANT SELECT ON `db_test_7b`.`tb_products` TO 'common_user';
 GRANT SELECT, UPDATE ON `db_test_7b`.`tb_users` TO 'common_user';
 
--- 7. USER_NOT_REGISTERED (Invitado / Registro)
-GRANT INSERT ON `db_test_7b`.`tb_users` TO 'user_not_registered';
-GRANT INSERT ON `db_test_7b`.`tb_people` TO 'user_not_registered';
-GRANT EXECUTE ON PROCEDURE db_test_7b.sp_register_new_user TO 'user_not_registered';
+-- 7. USER_NOT_REGISTERED (Usuario no registrado, acceso limitado)
 
+GRANT INSERT, SELECT ON `db_test_7b`.`tb_people` TO 'user_not_registered';
+GRANT INSERT, SELECT ON `db_test_7b`.`tb_users` TO 'user_not_registered';
+GRANT SELECT ON `db_test_7b`.`tb_products` TO 'user_not_registered';
+GRANT INSERT, SELECT, UPDATE ON `db_test_7b`.`tb_carts` TO 'user_not_registered';
+GRANT INSERT, SELECT, UPDATE, DELETE ON `db_test_7b`.`tbd_carts_items` TO 'user_not_registered';
+GRANT INSERT, SELECT, UPDATE ON `db_test_7b`.`tb_buyer_orders` TO 'user_not_registered';
+GRANT INSERT, SELECT ON `db_test_7b`.`tbd_order_items` TO 'user_not_registered';
+GRANT INSERT, SELECT, UPDATE ON `db_test_7b`.`tb_user_addresses` TO 'user_not_registered';
+GRANT INSERT, SELECT, UPDATE ON `db_test_7b`.`tbd_address_components` TO 'user_not_registered';
+GRANT EXECUTE ON PROCEDURE `db_test_7b`.`sp_register_new_user` TO 'user_not_registered';
+GRANT SELECT ON `db_test_7b`.`tbd_products_users_providers` TO 'user_not_registered';
+FLUSH PRIVILEGES;
 
 -- =====================================================
 -- ASIGNACIÓN DE ROLES A CUENTAS DE USUARIO
